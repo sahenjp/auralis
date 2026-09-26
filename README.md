@@ -1,151 +1,108 @@
+<div align="center">
+  <img src="docs/assets/auralis-header.svg" alt="Auralis — 音声を測定しながら、ローカルで整える" width="100%" />
+  <p><strong>日本語</strong> · <a href="README.en.md">English</a></p>
+  <p>
+    <a href="https://github.com/sahenjp/auralis/actions/workflows/ci.yml"><img src="https://github.com/sahenjp/auralis/actions/workflows/ci.yml/badge.svg" alt="CI status" /></a>
+    <img src="https://img.shields.io/badge/code-Apache--2.0-79bda0" alt="Apache-2.0 source license" />
+    <img src="https://img.shields.io/badge/platform-Windows%2011-526b65" alt="Windows 11" />
+  </p>
+</div>
+
 # Auralis
 
-Auralis is a new, fully local real-time voice enhancement system for Windows 11. The project starts with a measured audio transport and benchmark foundation; AI denoising is deliberately not part of the first milestone.
+**声を、外へ送らずに聞き取りやすく。** Auralisは、Windows 11向けのローカル優先・リアルタイム音声強調プロトタイプです。既存のWindows音声経路で入出力し、ノイズ抑制はリアルタイム音声コールバックの外にある処理ワーカーで行います。
 
-“Krisp killer” is a target, not a claim. Auralis will make comparative claims only from reproducible, like-for-like measurements and blinded listening tests.
+> **測定可能な試作段階です。** 以下は再現可能な技術測定であり、聴感上の好み、マイクからスピーカーまでの実遅延、商用製品に対する優位性を示すものではありません。
 
-## Milestone 0/1 status
+## いま測れていること
 
-- 48 kHz mono internal contract with fixed 10 ms frames
-- bounded, wait-free SPSC queues around a processing worker
-- passthrough processor behind a replaceable `FrameProcessor` interface
-- device enumeration and duplex capture/render through CPAL (WASAPI on Windows)
-- deterministic paced simulation for machines without audio devices
-- atomic callback, processing, queue, latency, underrun, and overrun metrics
-- non-realtime sampling of process CPU and resident memory
-- reproducible smoke benchmark with JSON and CSV output
+| 結果 | 測定値 |
+|---|---:|
+| UL-UNASの雑音下SI-SDR | 644ケース中、雑音あり630ケースの平均 **7.025 dB** |
+| 同STOI変化 | 同じ630ケースで平均 **+0.0057** |
+| Windows 11実機の安定性 | **30分、音声欠落・underrun・xrun・期限超過 0件** |
+| UL-UNAS推論時間 | 30分計測で **p95 1.35 ms** |
+| 計上したソフトウェア経路遅延 | 平均 **89.3 ms**。機器・音響を含む総遅延ではありません |
 
-## Milestone 2 status
+品質候補は16 kHz動作で、出力帯域は8 kHzまでです。クリーン音声の8–20 kHz成分は平均 **−13.112 dB** 変化しました。集計値だけでは見えなくなる高域のトレードオフも公開しています。
 
-- arbitrary device callback frame counts are adapted to fixed 480-sample
-  processing frames without callback allocation
-- native Windows reports include stable device IDs, formats, callback cadence
-  and histograms, callback/device timestamps, CPAL stream clocks, WASAPI shared
-  engine periods, queue time series, xruns, CPU, RSS, drift, and latency
-- CPAL remains the stream backend; a narrow Windows-only adapter performs
-  read-only `IAudioClient3` period queries
-- startup uses an explicit minimal pre-roll target instead of counting expected
-  startup silence as an underrun
-- measured native long-run drift is corrected by a bounded worker-side
-  asynchronous sinc resampler; no denoiser is enabled
+詳しくは [Milestone 3測定結果](docs/milestone-3-results.md) · [遅延の定義](docs/latency-budget.md) · [評価方法](docs/benchmark-methodology.md) · [Hugging Faceモデルカード](https://huggingface.co/sahenjp/auralis)。
 
-## Product-quality prototype status
+## エンジン
 
-Auralis now exposes one primary engine per product profile; profiles never
-cascade neural denoisers:
-
-| Profile | Engine | Current acceptance |
+| プロファイル | エンジン | 状態 |
 |---|---|---|
-| `low-latency` | RNNoise | provisional low-CPU fallback; weight clearance pending |
-| `balanced` | UL-UNAS | provisional quality engine; native Windows stable; weight clearance pending |
-| `maximum-quality` | DeepFilterNet3-LL | experimental; Windows first-inference deadline miss blocks realtime acceptance |
+| `low-latency` | RNNoise | 軽量な比較・参照用。暫定採用 |
+| `balanced` | UL-UNAS streaming ONNX | 暫定の品質候補。この評価の雑音コーパス集計で最良 |
+| `maximum-quality` | DeepFilterNet3-LL | 実験用。Windowsで期限超過が起きたためリアルタイム用途には不採用 |
 
-DeepFilterNet3-LL uses the pinned official 48 kHz model and produces the same
-offline signal as the official runner within PCM16 quantization, but its first
-native Windows inference measured hundreds of milliseconds. It is not silently
-promoted past that failure. GTCRN remains an offline comparison candidate, not
-a production engine.
+GTCRNはオフライン比較候補です。各プロファイルは単一エンジンを使い、複数のノイズ抑制器を直列接続しません。
 
-The local blind quality gate contains 16 difficult clean, noisy, and transient
-cases. It compares RAW, RNNoise, UL-UNAS, GTCRN, and DeepFilterNet anonymously
-with keyboard playback and append-only JSONL ratings. See
-`tools/auralis-model-lab/README.md`.
+## 試す
 
-Auralis is still not a virtual microphone. AEC3 and target-speaker isolation
-are not implemented yet.
-
-The local control GUI is available through the CLI and runs as a loopback-only
-browser window. It starts and stops the real duplex session, selects input and
-output devices, and displays live engine diagnostics; it does not add work to
-the audio callbacks.
-
-## Build
-
-Rust 1.97.1 is pinned by `rust-toolchain.toml`.
-
-Ubuntu/WSL build prerequisites:
+Rust 1.97.1を `rust-toolchain.toml` で固定しています。Ubuntu/WSLでは先に音声ヘッダーを入れてください。
 
 ```bash
 sudo apt-get install libasound2-dev libpulse-dev
-cargo build --workspace --all-targets --all-features
 ```
 
-Windows uses the CPAL WASAPI backend and does not require the Linux packages.
-
-The current workspace also retains a local Windows artifact at
-`target/windows-release/auralis-cli.exe` with its `DirectML.dll` sidecar. Copy
-both files to the same Windows directory, keep the separately licensed model
-file outside the repository, and run for example:
-
-```powershell
-.\auralis-cli.exe characterize 60 --profile balanced --model C:\Auralis\ulunas_stream_simple.onnx
-```
-
-This artifact has been link-checked as a Windows PE executable; native device
-enumeration and capture/render execution still require running it on Windows
-11. Do not redistribute the model or this build until the recorded weight and
-third-party runtime terms are cleared.
-
-## Run
+音声デバイスなしで再現可能なシミュレーションを実行:
 
 ```bash
-# Works without an audio device; emits a JSON measurement report.
 cargo run -p auralis-cli -- simulate 2
-
-# Enumerate inputs and outputs.
-cargo run -p auralis-cli -- devices
-
-# Open the local control GUI (the pinned model path is required for Balanced).
-cargo run --release -p auralis-cli -- gui \
-  --profile balanced --model /path/to/ulunas_stream_simple.onnx
-
-# Characterize the default native duplex path for 60 s and write JSON.
-cargo run --release -p auralis-cli -- \
-  characterize 60 --sample-ms 1000 --output bench/work/native-windows-60s.json
-
-# Run the provisional balanced profile. The pinned UL-UNAS model is required.
-cargo run --release -p auralis-cli -- \
-  characterize 60 --profile balanced --model /path/to/ulunas_stream_simple.onnx
-
-# Set AURALIS_GIT_REVISION to retain the source revision in the JSON report.
-
-# Repeated deterministic stream lifecycle exercise.
-cargo run --release -p auralis-cli -- restart 4 2
-
-# Generate, process, and score deterministic smoke fixtures at five SNRs.
-cargo run -p auralis-bench -- smoke --out-dir bench/work/smoke
-
-# Generate a reference for physical or loopback latency measurement.
-cargo run --release -p auralis-bench -- \
-  latency-reference --out bench/work/latency-reference.wav
 ```
 
-The WSL environment used to create the repository exposes WSLg PulseAudio sockets, but no hardware PCM device. `simulate` is therefore the local realtime verification path; the real duplex path must additionally be run from Windows 11.
+Windows 11でデバイス一覧とローカル操作GUIを起動:
 
-## Documentation
+```powershell
+cargo run --release -p auralis-cli -- devices
+cargo run --release -p auralis-cli -- gui --profile balanced --model C:\Auralis\ulunas_stream_simple.onnx
+```
 
-- [Architecture](docs/architecture.md)
-- [Latency budget](docs/latency-budget.md)
-- [Benchmark methodology](docs/benchmark-methodology.md)
-- [Observed development environment](docs/environment.md)
-- [Milestone 1 measurements](docs/milestone-1-results.md)
-- [Milestone 2 measurements](docs/milestone-2-results.md)
-- [Milestone 3 denoiser bake-off and decision](docs/milestone-3-results.md)
-- [End-to-end latency procedure](docs/end-to-end-latency.md)
-- [Architecture decisions](docs/adr/)
+ONNXファイルは**同梱していません**。利用権のあるモデルを指定してください。固定した上流リポジトリのソフトウェアには非独占のMITライセンスがありますが、モデル重みに限定した別個の許諾表示は確認できていません。Auralisは重みをホスト・再配布しません。
 
-## Repository layout
+GUIではローカルセッションの開始・停止、入出力デバイス選択、queue / underrun / xrun / CPU / RSS / 推論時間 / ソフトウェア遅延の確認ができます。仮想マイク機能ではありません。
+
+## 音声処理の構成
 
 ```text
-apps/auralis-cli/          diagnostics and manual realtime runner
-crates/auralis-core/       platform-independent realtime processing core
-crates/auralis-audio-io/   device and stream adapters
-tools/auralis-bench/       corpus generation and offline evaluation
-bench/                     frozen-corpus contract and generated outputs
-docs/adr/                  architecture decision records
-models/                    model manifests later; model binaries are ignored
+WASAPI / CPAL capture → 有界フレームキュー → 処理ワーカー → 有界フレームキュー → render
 ```
 
-## Licensing
+内部形式は48 kHz mono `f32`、固定10 msフレームです。デバイスコールバックは有界な形式変換、固定サイズコピー、SPSCキュー操作、Atomicメトリクス更新のみを行います。モデルのロードと推論はコールバック外で実行し、クロック差の補正もワーカー側に置いています。
 
-The Auralis source code is licensed under Apache-2.0. Third-party model weights have separate, unresolved terms and are not included or cleared for redistribution. Dataset audio is not included in this repository; consult each dataset's terms before fetching or redistributing it. The workspace remains marked `publish = false` for Rust package publication.
+## 検証コマンド
+
+```bash
+cargo fmt --all -- --check
+cargo check --workspace --all-targets --all-features
+cargo clippy --workspace --all-targets --all-features -- -D warnings
+cargo test --workspace --all-features
+cargo run -p auralis-cli -- simulate 2
+cargo run -p auralis-bench -- smoke --out-dir bench/work/smoke
+```
+
+固定環境でのオフライン評価と再実行方法は [`tools/auralis-model-lab/README.md`](tools/auralis-model-lab/README.md) にあります。コーパス音声と生成WAVはGitに含めていません。
+
+## 既知の制約
+
+- 人によるブラインド聴取評価は未実施です。客観指標は自然さや好みを測りません。
+- マイクからスピーカーまでの物理的な総遅延は未測定です。ソフトウェア遅延の値には機器・音響遅延を含みません。
+- AEC、話者分離、仮想マイクは未実装です。
+- 選定モデルの出力帯域は8 kHzまでで、高域の音声成分が減る場合があります。
+- モデル重みはこのリポジトリにありません。重み固有の再配布条件は未確認です。
+
+## リポジトリ案内
+
+| パス | 内容 |
+|---|---|
+| `crates/auralis-core` | 固定フレーム、処理契約、有界キュー、メトリクス |
+| `crates/auralis-audio-io` · `crates/auralis-wasapi` | デバイス・Windows音声アダプター |
+| `crates/auralis-denoisers` | 分離されたノイズ抑制エンジン |
+| `apps/auralis-cli` | デバイス確認、シミュレーション、ローカルGUI |
+| `tools/auralis-bench` · `tools/auralis-model-lab` | 決定論的・オフライン評価 |
+| `bench/` · `docs/` | データセット定義、評価方法、測定、設計記録 |
+
+## ライセンス
+
+Auralisのソースコードは[Apache-2.0](LICENSE)です。サードパーティのモデル重みとデータセットにはそれぞれ別の条件があります。利用・再配布の前に [`models/README.md`](models/README.md) と候補ごとのライセンス記録を確認してください。

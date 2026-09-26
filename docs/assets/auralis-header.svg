@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Auralis — voice, kept clear and local</title>
+  <desc id="desc">A dark field with a measured audio waveform and the Auralis wordmark.</desc>
+  <defs>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#253235" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="signal" x1="0" x2="1">
+      <stop offset="0" stop-color="#f29a7c"/>
+      <stop offset=".38" stop-color="#f2c99a"/>
+      <stop offset=".7" stop-color="#a8e8c7"/>
+      <stop offset="1" stop-color="#70d1bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="18" fill="#101819"/>
+  <rect width="1200" height="360" rx="18" fill="url(#grid)" opacity=".55"/>
+  <path d="M0 263H1200" stroke="#314144" stroke-width="1"/>
+  <path d="M625 75V284" stroke="#314144" stroke-width="1" stroke-dasharray="3 8"/>
+  <g fill="none" stroke="url(#signal)" stroke-linecap="round">
+    <path d="M635 181h22l8-13 9 29 11-49 12 74 12-99 13 116 12-87 12 55 12-35 12 15h28" stroke-width="3"/>
+    <path d="M841 187h30l10-8 10 15 10-31 11 43 11-62 11 79 12-55 11 33 11-20 11 7h54" stroke-width="2" opacity=".62"/>
+  </g>
+  <text x="72" y="146" fill="#f4f4eb" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="700" letter-spacing="8">AURALIS</text>
+  <text x="76" y="190" fill="#bbcac4" font-family="Segoe UI, Arial, sans-serif" font-size="17" letter-spacing="2.8">VOICE ENHANCEMENT, MEASURED AND LOCAL</text>
+  <rect x="76" y="224" width="7" height="7" rx="3.5" fill="#9ce2bd"/>
+  <text x="94" y="231" fill="#d3ded8" font-family="Segoe UI, Arial, sans-serif" font-size="13" letter-spacing="1.5">WINDOWS 11 · 48 kHz PIPELINE · CPU FIRST</text>
+  <text x="76" y="318" fill="#849792" font-family="Segoe UI, Arial, sans-serif" font-size="12" letter-spacing="2">LOCAL-FIRST / OPEN EVALUATION</text>
+  <text x="1122" y="318" text-anchor="end" fill="#849792" font-family="Segoe UI, Arial, sans-serif" font-size="12" letter-spacing="2">48 → 16 → 48 kHz</text>
+</svg>
