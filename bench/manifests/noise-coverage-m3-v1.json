@@ -1,0 +1,138 @@
+{
+  "schema_id": "auralis.noise-coverage.v1",
+  "coverage_id": "auralis-m3-noise-coverage-v1",
+  "corpus_id": "auralis-m3-offline-core-v3",
+  "status": "incomplete_against_requested_envelope",
+  "source_manifests": [
+    "bench/work/corpus/demand-noise-core-v1/manifest.json",
+    "bench/work/corpus/auralis-m3-transient-core-v1/manifest.json"
+  ],
+  "required_categories": [
+    {
+      "category": "mechanical_keyboard",
+      "status": "synthetic_control",
+      "evidence": "transient pattern speech-repeated-keyboard",
+      "real_recording": false
+    },
+    {
+      "category": "normal_keyboard",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "mouse_clicks",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "desk_impacts",
+      "status": "synthetic_control",
+      "evidence": "transient pattern speech-desk-knock",
+      "real_recording": false
+    },
+    {
+      "category": "pc_fan",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "room_fan",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "air_conditioner",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "vacuum_cleaner",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "dishes_cutlery",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "doors",
+      "status": "synthetic_control",
+      "evidence": "transient pattern speech-door-slam",
+      "real_recording": false
+    },
+    {
+      "category": "traffic",
+      "status": "real",
+      "evidence": "demand-street-traffic",
+      "real_recording": true
+    },
+    {
+      "category": "train_transit",
+      "status": "real",
+      "evidence": "demand-metro",
+      "real_recording": true
+    },
+    {
+      "category": "rain",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "wind",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "cafe",
+      "status": "real",
+      "evidence": "demand-cafeteria",
+      "real_recording": true
+    },
+    {
+      "category": "crowd",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "television",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "music",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "game_speaker_leakage",
+      "status": "missing",
+      "real_recording": false
+    },
+    {
+      "category": "nearby_conversation",
+      "status": "missing",
+      "real_recording": false
+    }
+  ],
+  "actual_real_noise_sources": [
+    "demand-domestic-living",
+    "demand-domestic-washing",
+    "demand-office",
+    "demand-cafeteria",
+    "demand-street-traffic",
+    "demand-metro"
+  ],
+  "actual_combined_noise_sources": [
+    "combined-office-traffic",
+    "combined-cafeteria-metro",
+    "combined-living-washing"
+  ],
+  "distance_conditions": {
+    "close": "missing",
+    "medium": "missing",
+    "far_field": "missing",
+    "reason": "Selected FLEURS and VoiceBank manifests do not provide controlled microphone-distance labels."
+  },
+  "interpretation": "Synthetic transient controls are retained for artifact/state-transition testing but do not count as real recordings for category coverage. Missing categories must be added before a final corpus-completeness claim."
+}

@@ -1,0 +1,60 @@
+{
+  "schema_id": "auralis.native-host-snapshot.v1",
+  "observed_at_utc": "2026-09-05T10:32:18.3424294Z",
+  "source": "PowerShell CIM plus a native CPUID helper executed on Windows host LATTE; paired with the separately retained native run. This snapshot is not retroactively embedded in older JSON envelopes.",
+  "host": {
+    "os": {
+      "caption": "Microsoft Windows 11 Home",
+      "version": "10.0.26200",
+      "build": "26200",
+      "architecture": "x64"
+    },
+    "cpu": {
+      "vendor": "AuthenticAMD",
+      "model": "AMD Ryzen 7 5700X 8-Core Processor",
+      "family": 107,
+      "model_number": null,
+      "stepping": "2",
+      "physical_cores": 8,
+      "logical_processors": 16
+    },
+    "simd": {
+      "features": [
+        "sse3",
+        "ssse3",
+        "sse4.1",
+        "sse4.2",
+        "fma",
+        "avx",
+        "bmi1",
+        "avx2",
+        "bmi2"
+      ],
+      "avx_os_xstate_mask": 2055,
+      "avx512f": false,
+      "source": "native CPUID helper and GetEnabledXStateFeatures"
+    }
+  },
+  "paired_native_run": {
+    "candidate_id": "ul-unas-dns3-streaming-onnx",
+    "artifact_path": "bench/work/native-windows-ulunas-host-envelope-60s.json",
+    "artifact_sha256": "8a409a3bab55fd4f159e93d79f6441b0715a51e3a63ea1f7683880641630303a",
+    "measurement_started_utc": null,
+    "duration_seconds": 60.000813,
+    "startup_pre_roll_frames": 1,
+    "target_fill_frames": 3.5,
+    "input_overrun_frames": 0,
+    "output_overrun_frames": 0,
+    "output_underrun_callbacks": 0,
+    "stream_xruns": 0,
+    "inference_failures": 0,
+    "native_executable_sha256": "c25d9d6cd2f5a38d52ce21e260015123c65150c1441959331b920a178b600d65",
+    "model_sha256": "f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b",
+    "output_last_write_utc": "2026-09-05T10:21:39.8768855Z"
+  },
+  "limitations": [
+    "The paired executable predates the host-runtime fields now present in source; this sidecar is the authoritative host snapshot for this run.",
+    "This does not change or reattribute historical 30-minute artifacts.",
+    "CPU affinity was not changed; no per-process native affinity record was emitted by the paired executable."
+  ]
+}

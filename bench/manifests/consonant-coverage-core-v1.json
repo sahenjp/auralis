@@ -1,0 +1,54 @@
+{
+  "schema_id": "auralis.consonant-coverage.v1",
+  "coverage_id": "auralis-m3-consonant-coverage-core-v1",
+  "method": "Manual transcript audit used to select dedicated listening and per-case metric subsets; this is not forced phoneme alignment.",
+  "japanese": {
+    "required_targets": ["sa", "shi", "su", "se", "so"],
+    "cases": [
+      {
+        "case_id": "ja-male-sibilant-0012",
+        "transcription": "サブカルチャーの特徴を決定付ける性質は 言語 美 宗教 政治 性 地理 またはそれらの要素の組み合わせかもしれません",
+        "target_evidence": {
+          "sa": "サブ",
+          "shi": "性質 (seishitsu)",
+          "su": "しれません (spoken sequence includes su only if dialectal; do not use this case alone for su)",
+          "se": "性質 (seishitsu)",
+          "so": "それら"
+        }
+      },
+      {
+        "case_id": "ja-female-sibilant-0164",
+        "transcription": "サファリはおそらくアフリカで最高の観光名所であり 多くの観光客にとって観光の目玉です",
+        "target_evidence": {
+          "sa": "サファリ",
+          "su": "です (desu)",
+          "so": "おそらく"
+        }
+      }
+    ],
+    "coverage_status": {
+      "sa": "covered",
+      "shi": "covered",
+      "su": "covered with commonly devoiced phrase-final /su/",
+      "se": "covered as /sei/ onset",
+      "so": "covered"
+    },
+    "limitation": "The frozen real-speech subset covers the target syllables in connected speech, not as an isolated sa-shi-su-se-so recital. Add a rights-cleared isolated recital before final subjective acceptance if connected-speech coverage proves insufficient."
+  },
+  "english": {
+    "required_targets": ["/s/", "/f/", "/th/", "/t/", "/k/"],
+    "cases": [
+      {
+        "case_id": "en-female-consonant-0003",
+        "transcription": "then lakkha singh took the lead in singing the bhajans",
+        "target_evidence": {"/th/": "then", "/t/": "took", "/k/": "lakkha; took"}
+      },
+      {
+        "case_id": "en-male-consonant-0006",
+        "transcription": "some festivals have special camping areas for families with young children",
+        "target_evidence": {"/s/": "some; special", "/f/": "festivals; families", "/k/": "camping"}
+      }
+    ],
+    "coverage_status": "covered"
+  }
+}

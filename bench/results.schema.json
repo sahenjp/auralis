@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://auralis.local/schemas/benchmark-results-v1.json",
+  "title": "Auralis benchmark results",
+  "type": "object",
+  "required": ["schema_version", "corpus_id", "systems", "results"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "corpus_id": { "type": "string", "minLength": 1 },
+    "systems": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "results": { "type": "array", "minItems": 1 }
+  },
+  "additionalProperties": true
+}
+

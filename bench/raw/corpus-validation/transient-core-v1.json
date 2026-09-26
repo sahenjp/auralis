@@ -1,0 +1,13 @@
+{
+  "schema_id": "auralis.corpus-reproducibility-validation.v1",
+  "corpus_id": "auralis-m3-transient-core-v1",
+  "validated_at": "2026-08-27",
+  "method": "Generate twice into distinct empty directories and compare every file byte-for-byte with diff -qr.",
+  "first_manifest_sha256": "d5e39f42a71b4e05e09b913187dd771b7e603aa9b340dc08f100114bfd951a5a",
+  "repeat_manifest_sha256": "d5e39f42a71b4e05e09b913187dd771b7e603aa9b340dc08f100114bfd951a5a",
+  "case_count": 36,
+  "event_count": 160,
+  "clipped_samples_total": 0,
+  "result": "passed",
+  "repeat_copy_retained": false
+}

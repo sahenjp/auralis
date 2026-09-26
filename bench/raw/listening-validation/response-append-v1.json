@@ -1,0 +1,12 @@
+{
+  "schema_id": "auralis.blind-abx-response-validation.v1",
+  "validated_at": "2026-08-27",
+  "session_id": "core-sanity-v1",
+  "method": "Record one synthetic all-neutral harness response in a temporary JSONL file, then repeat the same session/listener/trial tuple.",
+  "first_append_exit_code": 0,
+  "duplicate_append_exit_code": 1,
+  "duplicate_error": "response already exists; raw listening results are append-only",
+  "synthetic_response_retained": false,
+  "human_listening_result": false,
+  "result": "passed"
+}

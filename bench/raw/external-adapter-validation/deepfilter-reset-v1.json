@@ -1,0 +1,43 @@
+{
+  "schema_id": "auralis.external-adapter-validation.v1",
+  "validation_id": "deepfilternet3-ll-reset-per-file-v1",
+  "candidate_id": "deepfilternet3-ll-official",
+  "validated_at": "2026-08-27",
+  "upstream_revision": "d375b2d8309e0935d165700c91da9de862a99c31",
+  "binary": {
+    "version": "deep_filter 0.5.7-pre",
+    "sha256": "86a57e85320455ca8c571d046159c4356be4c2e14d5b1ab1e1915047f0affb15"
+  },
+  "adapter_patch": {
+    "path": "tools/external-adapters/deepfilternet-reset-per-file.patch",
+    "sha256": "61f619b3f9cffe3d009355431b1be55ad22c7632ad9a1e37ccef4dcf455e419e"
+  },
+  "model": {
+    "sha256": "5998e58e8ba0e09bb76986ef97b84afa065a571ef282d4a1222f341e3251cf3a"
+  },
+  "method": {
+    "process_count": 1,
+    "ordered_inputs": ["clean-a-first", "noisy-b-between", "clean-a-last"],
+    "assertion": "clean-a-first and clean-a-last are byte-identical despite an unrelated stateful inference between them"
+  },
+  "inputs": {
+    "clean_a": {
+      "corpus_path": "clean/ja-male-general-0000/input.wav",
+      "sha256": "d88707ff402bc7c5eb18743d228f671b9a12dd09b7afddf953059d2800d4e2a9"
+    },
+    "noisy_b": {
+      "corpus_path": "mixtures/ja-male-general-0000--demand-domestic-living--snr-plus-10db/noisy-input.wav",
+      "sha256": "939af718e5a896bd30e5a2e1f89b818713ec8267b49051007bc73540d88f2617"
+    }
+  },
+  "outputs": {
+    "clean_a_first_sha256": "e164262fa9d628197aa265bf27089e07b763949552753066aafe6c1f96bb19b4",
+    "noisy_b_between_sha256": "e1690197b430010aca77ff4a52d165f0f475c8dd23549bac1856a43e3732b0e9",
+    "clean_a_last_sha256": "e164262fa9d628197aa265bf27089e07b763949552753066aafe6c1f96bb19b4"
+  },
+  "result": "passed",
+  "limitations": [
+    "This validates deterministic per-file reset for the patched local evaluation binary, not the unmodified upstream multi-file CLI.",
+    "Temporary WAV outputs were not retained; their hashes and complete reproduction inputs are retained."
+  ]
+}

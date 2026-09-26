@@ -1,0 +1,56 @@
+[workspace]
+members = [
+    "apps/auralis-cli",
+    "crates/auralis-audio-io",
+    "crates/auralis-core",
+    "crates/auralis-denoisers",
+    "crates/auralis-diagnostics",
+    "crates/auralis-rnnoise-sys",
+    "crates/auralis-wasapi",
+    "tools/auralis-bench",
+]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.97.1"
+license = "Apache-2.0"
+publish = false
+
+[workspace.dependencies]
+cpal = { version = "0.18.2", default-features = false }
+hound = "3.5.1"
+ndarray = "0.15.6"
+libloading = "0.9.0"
+ort = { version = "=2.0.0-rc.13", default-features = false, features = [
+    "api-27",
+    "copy-dylibs",
+    "download-binaries",
+    "std",
+    "tls-native",
+] }
+realfft = "3.5.0"
+rtrb = "0.4.0"
+rubato = { version = "5.0.0", default-features = false }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+sha2 = "0.11.0"
+sysinfo = { version = "0.39.6", default-features = false, features = ["system"] }
+windows = { version = "0.62.2", features = [
+    "Win32_Foundation",
+    "Win32_Media_Audio",
+    "Win32_System_Com",
+    "Win32_System_Com_StructuredStorage",
+    "Win32_System_Threading",
+] }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = "deny"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+panic = "abort"

@@ -1,0 +1,30 @@
+[package]
+name = "auralis-denoisers"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+auralis-core = { path = "../auralis-core" }
+auralis-rnnoise-sys = { path = "../auralis-rnnoise-sys" }
+df = { package = "deep_filter", git = "https://github.com/Rikorose/DeepFilterNet.git", rev = "d375b2d8309e0935d165700c91da9de862a99c31", default-features = false, features = ["tract"] }
+ndarray.workspace = true
+ort.workspace = true
+realfft.workspace = true
+rubato = { workspace = true, features = ["fft_resampler"] }
+serde.workspace = true
+sha2.workspace = true
+# DeepFilterNet's pinned revision was released against Tract 0.21.4. Keep the
+# exact family version because its upstream caret range no longer compiles.
+tract-core = "=0.21.4"
+tract-hir = "=0.21.4"
+tract-onnx = "=0.21.4"
+tract-pulse = "=0.21.4"
+
+[dev-dependencies]
+hound.workspace = true
+
+[lints]
+workspace = true

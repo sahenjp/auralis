@@ -1,0 +1,92 @@
+{
+  "schema_id": "auralis.blind-rating-session-spec.v1",
+  "description": "Compact difficult gate using only frozen, licensed local sources; no TV, music, PC-fan, or nearby-speaker label is inferred without an authentic source.",
+  "groups": [
+    {
+      "corpus_manifest": "../work/corpus/auralis-m3-offline-core-v3/manifest.json",
+      "output_manifests": [
+        "../work/processed/rnnoise-core-v3/manifest.json",
+        "../work/processed/ul-unas-official-centered-core-v3/manifest.json",
+        "../work/processed/gtcrn-official-centered-core-v3/manifest.json",
+        "../work/processed/deepfilternet3-ll-core-v3/manifest.json"
+      ],
+      "cases": [
+        {
+          "case_id": "ja-male-sibilant-0012--clean",
+          "scenario": "Clean Japanese male, sibilant-heavy"
+        },
+        {
+          "case_id": "ja-female-sibilant-0164--clean",
+          "scenario": "Clean Japanese female, sibilant-heavy"
+        },
+        {
+          "case_id": "en-female-consonant-0003--clean",
+          "scenario": "Clean female speech, consonant-heavy"
+        },
+        {
+          "case_id": "ja-male-sibilant-0012--demand-office--snr-minus-10db",
+          "scenario": "Japanese speech, DEMAND office noise, -10 dB SNR"
+        },
+        {
+          "case_id": "ja-female-sibilant-0164--demand-domestic-washing--snr-minus-5db",
+          "scenario": "Japanese speech, DEMAND domestic washing noise, -5 dB SNR"
+        },
+        {
+          "case_id": "ja-female-sibilant-0164--demand-cafeteria--snr-minus-5db",
+          "scenario": "Japanese speech, DEMAND cafeteria noise, -5 dB SNR"
+        },
+        {
+          "case_id": "en-female-consonant-0003--demand-street-traffic--snr-plus-0db",
+          "scenario": "Consonant-heavy speech, DEMAND street traffic, 0 dB SNR"
+        },
+        {
+          "case_id": "en-male-consonant-0006--combined-cafeteria-metro--snr-plus-5db",
+          "scenario": "Consonant-heavy speech, cafeteria plus metro mixture, +5 dB SNR"
+        }
+      ]
+    },
+    {
+      "corpus_manifest": "../work/corpus/auralis-m3-transient-core-v1/manifest.json",
+      "output_manifests": [
+        "../work/processed/rnnoise-transient-v1/manifest.json",
+        "../work/processed/ul-unas-transient-v1/manifest.json",
+        "../work/processed/gtcrn-transient-v1/manifest.json",
+        "../work/processed/deepfilternet3-ll-transient-v1/manifest.json"
+      ],
+      "cases": [
+        {
+          "case_id": "ja-male-sibilant-0012--silence-click-speech",
+          "scenario": "Keyboard-like click immediately before Japanese speech"
+        },
+        {
+          "case_id": "ja-female-sibilant-0164--speech-repeated-keyboard",
+          "scenario": "Repeated synthetic keyboard impacts during Japanese speech"
+        },
+        {
+          "case_id": "voicebank-p232-003--speech-desk-knock",
+          "scenario": "Synthetic desk knock during speech"
+        },
+        {
+          "case_id": "voicebank-p257-019--speech-door-slam",
+          "scenario": "Synthetic door slam during speech"
+        },
+        {
+          "case_id": "ja-male-sibilant-0012--noise-to-clean-speech",
+          "scenario": "Steady noise transitioning into clean Japanese speech"
+        },
+        {
+          "case_id": "ja-female-sibilant-0164--steady-noise-speech-onset",
+          "scenario": "Japanese speech onset inside steady noise"
+        },
+        {
+          "case_id": "voicebank-p232-003--speech-to-steady-noise",
+          "scenario": "Speech transitioning into steady noise"
+        },
+        {
+          "case_id": "voicebank-p257-019--speech-in-noise-offset",
+          "scenario": "Speech offset while steady noise continues"
+        }
+      ]
+    }
+  ]
+}

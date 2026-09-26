@@ -1,0 +1,494 @@
+{
+  "schema_id": "auralis.realtime-bakeoff-summary.v1",
+  "measurement_scope": "native Windows 11 CPAL/WASAPI release runs recorded from the Auralis Milestone 3 integration",
+  "physical_e2e_latency_measured": false,
+  "host_metadata": {
+    "os": "Windows 11 (recorded run provenance)",
+    "cpu_architecture": null,
+    "cpu_features": null,
+    "runtime_version": null,
+    "note": "CPU model, SIMD feature set, affinity status, and OS build were not captured in the native host envelope. Candidate raw artifacts retain runtime version/build, execution provider, and requested thread settings; null here is intentional because the summary spans heterogeneous candidates."
+  },
+  "reference": {
+    "candidate_id": "passthrough",
+    "artifact": {
+      "path": "bench/work/native-windows-30m-accepted.json",
+      "sha256": "46a623945ef7b7863efe9650b6543e98bfbe6047065f0b1f08a5e5be824443bc"
+    },
+    "duration_seconds": 1800.0,
+    "pipeline": {
+      "queue_capacity_frames": 4,
+      "target_fill_frames": 3.5,
+      "startup_pre_roll_frames": 3
+    },
+    "stability": {
+      "input_overrun_frames": 0,
+      "output_overrun_frames": 0,
+      "output_underrun_callbacks": 0,
+      "stream_xruns": 0
+    },
+    "queue": {
+      "mean_frames": 3.499385261124626,
+      "minimum_frames": 2.525,
+      "maximum_frames": 3.597916666666667,
+      "slope_equivalent_ppm": 0.12804048655540926,
+      "relative_clock_difference_ppm": -0.035452743740727044,
+      "correction_ratio_ppm": -0.022
+    },
+    "latency": {
+      "transport_average_ms": 45.96407631190071,
+      "transport_maximum_ms": 59.6108,
+      "processing_average_ms": 0.029284754735848007,
+      "processing_maximum_ms": 1.251,
+      "drift_resampler_delay_samples": 64,
+      "drift_resampler_delay_ms": 1.3333333333333333
+    },
+    "resources": {
+      "average_cpu_percent": 4.893979491307713,
+      "peak_resident_memory_bytes": 18239488
+    }
+  },
+  "runs": [
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "role": "quality_finalist",
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-30m.json",
+        "sha256": "b0e5035b7522a73234be565ae034e924d25470c01e26f7cce659dbd2d9441241",
+        "model_sha256": "f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b",
+        "raw_runtime_candidate_id": "ul-unas-official-streaming-onnx"
+      },
+      "duration_seconds": 1800.0,
+      "pipeline": {
+        "queue_capacity_frames": 4,
+        "target_fill_frames": 3.5,
+        "startup_pre_roll_frames": 1,
+        "drift_correction_enabled": true
+      },
+      "stability": {
+        "input_overrun_frames": 0,
+        "output_overrun_frames": 0,
+        "output_underrun_callbacks": 0,
+        "stream_xruns": 0,
+        "processing_deadline_misses": 0,
+        "inference_failures": 0
+      },
+      "queue": {
+        "mean_frames": 3.626940972222234,
+        "minimum_frames": 1.9958333333333333,
+        "maximum_frames": 3.904166666666667,
+        "slope_equivalent_ppm": 0.05260620618027327,
+        "relative_clock_difference_ppm": 0.038741181374035705,
+        "correction_ratio_ppm": -0.112
+      },
+      "latency": {
+        "model_algorithmic_latency_samples": 256,
+        "model_algorithmic_latency_ms": 16.0,
+        "processor_algorithmic_latency_samples_at_48khz": 2208,
+        "drift_resampler_delay_samples": 64,
+        "processing_path_algorithmic_latency_samples": 2272,
+        "transport_average_ms": 41.994436410250714,
+        "transport_maximum_ms": 43.7943,
+        "processing_average_ms": 0.7298225969524084,
+        "processing_maximum_ms": 4.6119,
+        "accounted_total_software_pipeline_average_ms": 89.32776974358404,
+        "accounted_total_software_pipeline_maximum_ms": 91.12763333333334
+      },
+      "inference_wall_time_ms": {
+        "mean": 1.1128063987698433,
+        "p50": 1.1,
+        "p95": 1.35,
+        "p99": 1.56,
+        "maximum": 4.5132
+      },
+      "resources": {
+        "average_cpu_percent": 11.024313223792374,
+        "peak_resident_memory_bytes": 43945984,
+        "model_memory_bytes": null
+      },
+      "acceptance": {
+        "sixty_second": "passed",
+        "ten_minute": "passed",
+        "thirty_minute": "passed",
+        "production_shipping": "blocked_pending_weight_license"
+      }
+    },
+    {
+      "candidate_id": "rnnoise-main-official-model",
+      "role": "lightweight_reference",
+      "artifact": {
+        "path": "bench/work/native-windows-rnnoise-30m-followup.json",
+        "sha256": "506984328a766e34d9080f13ff3d405fb996de6c8e2370f54f146624a1d5eaf2",
+        "model_sha256": "0a8755f8e2d834eff6a54714ecc7d75f9932e845df35f8b59bc52a7cfe6e8b37"
+      },
+      "supporting_artifacts": [
+        {
+          "path": "bench/work/native-windows-rnnoise-10m.json",
+          "sha256": "aaabff253cf486106929df172df5239a3e6d9eaebee3f9ee9bc3c311ab934133"
+        }
+      ],
+      "duration_seconds": 1800.0,
+      "pipeline": {
+        "queue_capacity_frames": 4,
+        "target_fill_frames": 3.5,
+        "startup_pre_roll_frames": 1,
+        "drift_correction_enabled": true
+      },
+      "stability": {
+        "input_overrun_frames": 0,
+        "output_overrun_frames": 0,
+        "output_underrun_callbacks": 0,
+        "stream_xruns": 0,
+        "processing_deadline_misses": 0,
+        "inference_failures": 0
+      },
+      "queue": {
+        "mean_frames": 3.4996620370370364,
+        "minimum_frames": 2.995833333333333,
+        "maximum_frames": 3.597916666666667,
+        "slope_equivalent_ppm": 0.12167039495108285,
+        "relative_clock_difference_ppm": 0.4161563333937579,
+        "correction_ratio_ppm": 0.001
+      },
+      "latency": {
+        "model_algorithmic_latency_samples": 960,
+        "model_algorithmic_latency_ms": 20.0,
+        "processor_algorithmic_latency_samples_at_48khz": 960,
+        "drift_resampler_delay_samples": 64,
+        "processing_path_algorithmic_latency_samples": 1024,
+        "transport_average_ms": 45.60636171114617,
+        "transport_maximum_ms": 55.4949,
+        "processing_average_ms": 0.5667560893500952,
+        "processing_maximum_ms": 5.021,
+        "accounted_total_software_pipeline_average_ms": 66.9396950444795,
+        "accounted_total_software_pipeline_maximum_ms": 76.82823333333333
+      },
+      "inference_wall_time_ms": {
+        "mean": 0.5354708112282027,
+        "p50": 0.56,
+        "p95": 0.75,
+        "p99": 0.92,
+        "maximum": 4.9679
+      },
+      "resources": {
+        "average_cpu_percent": 10.566410461979368,
+        "peak_resident_memory_bytes": 29282304,
+        "model_memory_bytes": null
+      },
+      "acceptance": {
+        "sixty_second": "passed",
+        "ten_minute": "passed",
+        "thirty_minute": "passed",
+        "production_shipping": "blocked_pending_weight_license"
+      },
+      "notes": [
+        "The 30-minute follow-up uses a locally rebuilt scalar RNNoise DLL with runtime artifact SHA-256 c39f06b13a44d0155697316b93c8c6bdb42b326c2f74e46a7c7a4f86c9c2422c; values are worker inference wall time, not algorithmic latency.",
+        "The earlier 10-minute artifact remains retained at bench/work/native-windows-rnnoise-10m.json."
+      ]
+    },
+    {
+      "candidate_id": "deepfilternet3-ll-official",
+      "role": "realtime_rejected",
+      "artifact": {
+        "path": "bench/work/native-windows-deepfilter-muted-10s.json",
+        "sha256": "63113f9d9cc3789262c598b4b313d4dd75f3e76d4e68d0c2012055f2cd904a2e",
+        "model_sha256": "5998e58e8ba0e09bb76986ef97b84afa065a571ef282d4a1222f341e3251cf3a"
+      },
+      "duration_seconds": 10.0,
+      "pipeline": {
+        "queue_capacity_frames": 4,
+        "target_fill_frames": 3.5,
+        "startup_pre_roll_frames": 1,
+        "drift_correction_enabled": true
+      },
+      "stability": {
+        "input_overrun_frames": 43,
+        "output_overrun_frames": 0,
+        "output_underrun_callbacks": 0,
+        "stream_xruns": 0,
+        "processing_deadline_misses": 1,
+        "inference_failures": null
+      },
+      "latency": {
+        "model_algorithmic_latency_samples": 480,
+        "model_algorithmic_latency_ms": 10.0,
+        "processing_average_ms": 2.590925603357818,
+        "processing_maximum_ms": 470.4489,
+        "transport_average_ms": 55.30422056962025,
+        "transport_maximum_ms": 483.0596
+      },
+      "inference_wall_time_ms": {
+        "mean": 2.559781007345226,
+        "p50": 2.07,
+        "p95": 2.5,
+        "p99": 2.69,
+        "maximum": 470.3997,
+        "histogram_overflow_count": 1
+      },
+      "resources": {
+        "average_cpu_percent": 28.84356044296072,
+        "peak_resident_memory_bytes": 133369856,
+        "model_memory_bytes": null
+      },
+      "acceptance": {
+        "sixty_second": "not_run_after_failure",
+        "ten_minute": "not_run_after_failure",
+        "thirty_minute": "not_run_after_failure",
+        "production_shipping": "rejected_realtime_deadline_and_weight_license"
+      }
+    }
+  ],
+  "pareto_runs": [
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "target_fill_frames": 2.0,
+      "duration_seconds": 600.0,
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-target-2.0-10m.json",
+        "sha256": "16ce1c89b075bbbfc5d18aa796a13575a98d1b9afc09a57d382e3748e3772e8d"
+      },
+      "queue_mean_frames": 2.259145833333335,
+      "queue_min_frames": 0.9458333333333333,
+      "queue_max_frames": 3.95625,
+      "queue_slope_equivalent_ppm": -9.019999057295212,
+      "transport_average_ms": 32.136518187576044,
+      "transport_maximum_ms": 41.8686,
+      "input_overrun_frames": 0,
+      "output_overrun_frames": 0,
+      "output_underrun_callbacks": 0,
+      "stream_xruns": 0,
+      "status": "shorter_than_final_30m_soak; not_default"
+    },
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "target_fill_frames": 2.0,
+      "duration_seconds": 1800.0,
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-target-2.0-30m-followup.json",
+        "sha256": "05a44efd6b41d7efadb1a7cc0c43f029d7cf6902c53e2ab4f9a043172d0b4bf1"
+      },
+      "queue_mean_frames": 2.0008738425926014,
+      "queue_min_frames": 1.8083333333333333,
+      "queue_max_frames": 2.995833333333333,
+      "queue_slope_equivalent_ppm": -0.24164960342370492,
+      "relative_clock_difference_ppm": -0.02562032064279407,
+      "correction_ratio_ppm": -0.001,
+      "transport_average_ms": 26.114502257134443,
+      "transport_maximum_ms": 36.4878,
+      "processing_average_ms": 0.8355740271427856,
+      "processing_maximum_ms": 4.1107,
+      "inference_p50_ms": 1.23,
+      "inference_p95_ms": 1.68,
+      "inference_p99_ms": 2.23,
+      "inference_maximum_ms": 4.0097,
+      "average_cpu_percent": 13.225845944562419,
+      "peak_resident_memory_bytes": 43925504,
+      "input_overrun_frames": 0,
+      "output_overrun_frames": 0,
+      "output_underrun_callbacks": 0,
+      "stream_xruns": 0,
+      "processing_deadline_misses": 0,
+      "status": "passed_final_30m_soak; not_default"
+    },
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "target_fill_frames": 2.5,
+      "duration_seconds": 600.0,
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-target-2.5-10m.json",
+        "sha256": "9deaa7193be0e949a90c7116c6836d9491efeb524424266ff88e3ecb6be4611e"
+      },
+      "queue_mean_frames": 2.830722222222211,
+      "queue_min_frames": 2.3958333333333335,
+      "queue_max_frames": 3.9895833333333335,
+      "queue_slope_equivalent_ppm": -2.0389340983148374,
+      "transport_average_ms": 41.003759912995655,
+      "transport_maximum_ms": 44.1962,
+      "input_overrun_frames": 0,
+      "output_overrun_frames": 0,
+      "output_underrun_callbacks": 0,
+      "stream_xruns": 0,
+      "status": "shorter_than_final_30m_soak; not_default"
+    },
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "target_fill_frames": 2.5,
+      "duration_seconds": 1800.0,
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-target-2.5-30m-followup.json",
+        "sha256": "16a0b5206617e6200e2748c73dfb825ba0a99b14944760e9cfb8e8d0b5642123"
+      },
+      "queue_mean_frames": 2.5015081018518908,
+      "queue_min_frames": 2.404166666666667,
+      "queue_max_frames": 2.995833333333333,
+      "queue_slope_equivalent_ppm": -0.12132321444815422,
+      "relative_clock_difference_ppm": 0.321429618255209,
+      "correction_ratio_ppm": -0.145,
+      "transport_average_ms": 34.62387008927331,
+      "transport_maximum_ms": 46.4684,
+      "processing_average_ms": 0.9851849343377108,
+      "processing_maximum_ms": 5.3967,
+      "inference_p50_ms": 1.43,
+      "inference_p95_ms": 2.18,
+      "inference_p99_ms": 2.68,
+      "inference_maximum_ms": 5.2765,
+      "average_cpu_percent": 14.80446183143801,
+      "peak_resident_memory_bytes": 43995136,
+      "input_overrun_frames": 0,
+      "output_overrun_frames": 0,
+      "output_underrun_callbacks": 0,
+      "stream_xruns": 0,
+      "processing_deadline_misses": 0,
+      "status": "passed_final_30m_soak; not_default"
+    },
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "target_fill_frames": 3.5,
+      "duration_seconds": 1800.0,
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-30m.json",
+        "sha256": "b0e5035b7522a73234be565ae034e924d25470c01e26f7cce659dbd2d9441241"
+      },
+      "queue_mean_frames": 3.626940972222234,
+      "queue_min_frames": 1.9958333333333333,
+      "queue_max_frames": 3.904166666666667,
+      "queue_slope_equivalent_ppm": 0.05260620618027327,
+      "transport_average_ms": 41.994436410250714,
+      "transport_maximum_ms": 43.7943,
+      "input_overrun_frames": 0,
+      "output_overrun_frames": 0,
+      "output_underrun_callbacks": 0,
+      "stream_xruns": 0,
+      "status": "passed_final_soak"
+    }
+  ],
+  "follow_up_runs": [
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "role": "quality_finalist_follow_up",
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-60s-followup.json",
+        "sha256": "293a434a3309806c4f9d9a39ee7d19ecef0a3edaf556670ff9a13f2827c46213",
+        "model_sha256": "f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b"
+      },
+      "duration_seconds": 60.0003915,
+      "pipeline": {
+        "queue_capacity_frames": 4,
+        "target_fill_frames": 3.5,
+        "startup_pre_roll_frames": 1,
+        "drift_correction_enabled": true
+      },
+      "stability": {
+        "input_overrun_frames": 0,
+        "output_overrun_frames": 0,
+        "output_underrun_callbacks": 0,
+        "stream_xruns": 0,
+        "processing_deadline_misses": 0,
+        "inference_failures": 0
+      },
+      "queue": {
+        "mean_frames": 3.1644444444444444,
+        "minimum_frames": 2.995833333333333,
+        "maximum_frames": 3.39375,
+        "slope_equivalent_ppm": 74.55977582271633,
+        "relative_clock_difference_ppm": -0.3005307339654095,
+        "correction_ratio_ppm": 70.408
+      },
+      "latency": {
+        "model_algorithmic_latency_samples": 256,
+        "model_algorithmic_latency_ms": 16.0,
+        "processor_algorithmic_latency_samples_at_48khz": 2208,
+        "drift_resampler_delay_samples": 64,
+        "processing_path_algorithmic_latency_samples": 2272,
+        "transport_average_ms": 48.41383940607274,
+        "transport_maximum_ms": 51.159,
+        "processing_average_ms": 1.0881172724241415,
+        "processing_maximum_ms": 3.9552,
+        "accounted_total_software_pipeline_average_ms": 95.74717273940607,
+        "accounted_total_software_pipeline_maximum_ms": 98.49233333333333
+      },
+      "inference_wall_time_ms": {
+        "mean": 1.655489514407684,
+        "p50": 1.6,
+        "p95": 2.14,
+        "p99": 2.63,
+        "maximum": 3.8558
+      },
+      "resources": {
+        "average_cpu_percent": 15.57370679911781,
+        "peak_resident_memory_bytes": 43503616,
+        "model_memory_bytes": null
+      },
+      "acceptance": {
+        "sixty_second": "passed",
+        "thirty_minute": "not_applicable",
+        "production_shipping": "blocked_pending_weight_license"
+      },
+      "notes": [
+        "Additional native Windows run using the same 3.5-frame target as the accepted profile; retained separately from the original 60-second artifact.",
+        "The older Windows-target binary did not emit the newer provenance wrapper fields; runtime/provider details remain in the denoiser-runtime object."
+      ]
+    },
+    {
+      "candidate_id": "rnnoise-main-official-model",
+      "role": "lightweight_reference_follow_up",
+      "artifact": {
+        "path": "bench/work/native-windows-rnnoise-10s-followup.json",
+        "sha256": "56aaecb6635940695a6673c8f7d10078667755da22b90fe6c224da2c7400c503",
+        "model_sha256": "0a8755f8e2d834eff6a54714ecc7d75f9932e845df35f8b59bc52a7cfe6e8b37",
+        "runtime_artifact_sha256": "c39f06b13a44d0155697316b93c8c6bdb42b326c2f74e46a7c7a4f86c9c2422c"
+      },
+      "duration_seconds": 10.0001529,
+      "pipeline": {
+        "queue_capacity_frames": 4,
+        "target_fill_frames": 3.5,
+        "startup_pre_roll_frames": 1,
+        "drift_correction_enabled": true
+      },
+      "stability": {
+        "input_overrun_frames": 0,
+        "output_overrun_frames": 0,
+        "output_underrun_callbacks": 0,
+        "stream_xruns": 0,
+        "processing_deadline_misses": 0,
+        "inference_failures": 0
+      },
+      "queue": {
+        "mean_frames": 2.999791666666667,
+        "minimum_frames": 2.995833333333333,
+        "maximum_frames": 3.0104166666666665,
+        "slope_equivalent_ppm": 15.777389965025916
+      },
+      "latency": {
+        "transport_average_ms": 40.39697746478873,
+        "transport_maximum_ms": 48.3965,
+        "accounted_total_software_pipeline_average_ms": 61.73031079812206,
+        "accounted_total_software_pipeline_maximum_ms": 69.72983333333333
+      },
+      "inference_wall_time_ms": {
+        "mean": 0.6039301603206413,
+        "p50": 0.58,
+        "p95": 0.78,
+        "p99": 1.0,
+        "maximum": 6.8751
+      },
+      "resources": {
+        "average_cpu_percent": 11.443266980735197,
+        "peak_resident_memory_bytes": 28667904,
+        "model_memory_bytes": null
+      },
+      "acceptance": {
+        "ten_second": "passed",
+        "production_shipping": "blocked_pending_weight_license"
+      },
+      "notes": [
+        "Short native load confirmation for the separately hashed scalar RNNoise DLL; not a soak result."
+      ]
+    }
+  ],
+  "limitations": [
+    "Native artifacts do not include CPU model, SIMD feature, affinity, or OS-build fields; candidate runtime build/provider/thread fields are retained where available.",
+    "Reduced startup pre-roll below one frame was not measured.",
+    "Physical acoustic/device end-to-end latency remains unmeasured."
+  ]
+}

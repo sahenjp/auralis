@@ -1,0 +1,97 @@
+{
+  "schema_id": "auralis.denoiser-license-audit.v1",
+  "audited_at": "2026-09-05",
+  "scope": "Pinned source revisions and model artifacts used by the Milestone 3 local bake-off",
+  "policy": "A repository source license is not treated as a model-weight license unless the upstream text explicitly grants that scope.",
+  "candidates": [
+    {
+      "candidate_id": "deepfilternet3-ll-official",
+      "upstream_revision": "d375b2d8309e0935d165700c91da9de862a99c31",
+      "source_license": {
+        "spdx": "MIT OR Apache-2.0",
+        "evidence_url": "https://raw.githubusercontent.com/Rikorose/DeepFilterNet/d375b2d8309e0935d165700c91da9de862a99c31/README.md",
+        "scope_observed": "README says all code in the repository is dual licensed."
+      },
+      "weight_artifact": {
+        "path": "models/DeepFilterNet3_ll_onnx.tar.gz",
+        "sha256": "5998e58e8ba0e09bb76986ef97b84afa065a571ef282d4a1222f341e3251cf3a",
+        "archive_entries": ["tmp/export/enc.onnx", "tmp/export/erb_dec.onnx", "tmp/export/df_dec.onnx", "tmp/export/config.ini"],
+        "license_status": "not_explicitly_stated",
+        "evidence": "Pinned archive contains no LICENSE or NOTICE entry; upstream README describes pretrained model weights but scopes its license sentence to code.",
+        "clarification_issue": {
+          "url": "https://github.com/Rikorose/DeepFilterNet/issues/709",
+          "state_at_audit": "open",
+          "updated_at": "2026-09-01T11:29:09Z"
+        }
+      },
+      "commercial_use": "blocked_pending_weight_terms",
+      "redistribution": "blocked_pending_weight_terms"
+    },
+    {
+      "candidate_id": "gtcrn-dns3-streaming-onnx",
+      "upstream_revision": "502ebfab64da7c4a9af78dcb9c6ceef1ebb01c73",
+      "source_license": {
+        "spdx": "MIT",
+        "evidence_url": "https://raw.githubusercontent.com/Xiaobin-Rong/gtcrn/502ebfab64da7c4a9af78dcb9c6ceef1ebb01c73/LICENSE",
+        "scope_observed": "MIT grant applies to the Software; no separate weight grant was found."
+      },
+      "weight_artifact": {
+        "path": "stream/onnx_models/gtcrn_simple.onnx",
+        "sha256": "b4718df6228e7bdf1a8a435cf98f838636eb2fd331acabf86ba87c5192ebcb87",
+        "repository_paths_checked": ["checkpoints/", "stream/onnx_models/"],
+        "license_status": "not_explicitly_stated",
+        "evidence": "Pinned model directories contain model/checkpoint files but no license or notice file; README calls them pretrained models without weight terms.",
+        "clarification_issue": null
+      },
+      "commercial_use": "blocked_pending_weight_terms",
+      "redistribution": "blocked_pending_weight_terms"
+    },
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "upstream_revision": "00f7c700da43d38347f30a6ccebd86fcbc798e07",
+      "source_license": {
+        "spdx": "MIT",
+        "evidence_url": "https://raw.githubusercontent.com/Xiaobin-Rong/ul-unas/00f7c700da43d38347f30a6ccebd86fcbc798e07/LICENSE",
+        "scope_observed": "MIT grant applies to the Software; source files carry MIT headers but no separate weight grant was found."
+      },
+      "weight_artifact": {
+        "path": "ulunas_onnx/onnx_models/ulunas_stream_simple.onnx",
+        "sha256": "f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b",
+        "repository_paths_checked": ["checkpoints/", "ulunas_onnx/onnx_models/"],
+        "license_status": "not_explicitly_stated",
+        "evidence": "Pinned model directories contain model/checkpoint files but no license or notice file; README documents release and inference but does not state weight terms.",
+        "clarification_issue": null
+      },
+      "commercial_use": "blocked_pending_weight_terms",
+      "redistribution": "blocked_pending_weight_terms"
+    },
+    {
+      "candidate_id": "rnnoise-main-official-model",
+      "upstream_revision": "70f1d256acd4b34a572f999a05c87bf00b67730d",
+      "source_license": {
+        "spdx": "BSD-3-Clause",
+        "evidence_url": "https://raw.githubusercontent.com/xiph/rnnoise/70f1d256acd4b34a572f999a05c87bf00b67730d/COPYING",
+        "scope_observed": "COPYING grants redistribution for the software and source/binary forms; it does not identify the separately downloaded model archive."
+      },
+      "weight_artifact": {
+        "path": "rnnoise_data-0a8755f8e2d834eff6a54714ecc7d75f9932e845df35f8b59bc52a7cfe6e8b37.tar.gz",
+        "sha256": "0a8755f8e2d834eff6a54714ecc7d75f9932e845df35f8b59bc52a7cfe6e8b37",
+        "archive_entries": ["src/rnnoise_data.c", "src/rnnoise_data.h", "src/rnnoise_data_little.c", "src/rnnoise_data_little.h", "models/rnnoise10Ga_12.pth", "models/rnnoise10Gb_15.pth"],
+        "license_status": "not_explicitly_stated",
+        "evidence": "Pinned model archive contains no LICENSE or COPYING entry; README documents model download/training but does not state weight terms.",
+        "clarification_issue": {
+          "url": "https://github.com/xiph/rnnoise/issues/284",
+          "state_at_audit": "open",
+          "updated_at": "2026-09-04T21:31:04Z"
+        }
+      },
+      "commercial_use": "blocked_pending_weight_terms",
+      "redistribution": "blocked_pending_weight_terms"
+    }
+  ],
+  "decision": "none_cleared_for_redistribution",
+  "limitations": [
+    "This audit records publicly visible upstream evidence and open clarification requests; it is not legal advice.",
+    "A maintainer statement or an explicit license file is required before shipping any pinned model artifact."
+  ]
+}

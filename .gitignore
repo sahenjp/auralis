@@ -1,0 +1,14 @@
+/target/
+**/.venv/
+/bench/work/
+/bench/results/*.json
+/bench/results/*.csv
+/bench/corpus/**/*.wav
+/bench/outputs/**/*.wav
+/models/**/*.onnx
+/models/**/*.bin
+*.pdb
+*.user
+__pycache__/
+*.py[cod]
+.serena/

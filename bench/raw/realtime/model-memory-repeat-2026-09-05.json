@@ -1,0 +1,61 @@
+{
+  "schema_id": "auralis.model-memory-repeat.v1",
+  "measurement_scope": "Local Linux paced simulation method repeatability; not native Windows acceptance evidence",
+  "candidate_id": "ul-unas-dns3-streaming-onnx",
+  "model": {
+    "path": "models/ulunas_stream_simple.onnx",
+    "sha256": "f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b",
+    "size_bytes": 788967
+  },
+  "host": {
+    "target_os": "linux",
+    "target_architecture": "x86_64",
+    "runtime": "ONNX Runtime CPUExecutionProvider",
+    "intra_op_threads": 1,
+    "inter_op_threads": 1
+  },
+  "method": "same-process RSS delta before and after denoiser load",
+  "runs": [
+    {
+      "measurement_started_unix_seconds": 1788605761,
+      "baseline_resident_memory_bytes": 10080256,
+      "post_load_resident_memory_bytes": 36847616,
+      "delta_resident_memory_bytes": 26767360,
+      "peak_resident_memory_bytes": 37515264,
+      "duration_seconds": 1.0,
+      "processing_deadline_misses": 0,
+      "inference_failures": 0
+    },
+    {
+      "measurement_started_unix_seconds": 1788605762,
+      "baseline_resident_memory_bytes": 9846784,
+      "post_load_resident_memory_bytes": 36691968,
+      "delta_resident_memory_bytes": 26845184,
+      "peak_resident_memory_bytes": 37294080,
+      "duration_seconds": 1.0,
+      "processing_deadline_misses": 0,
+      "inference_failures": 0
+    },
+    {
+      "measurement_started_unix_seconds": 1788605763,
+      "baseline_resident_memory_bytes": 9928704,
+      "post_load_resident_memory_bytes": 36700160,
+      "delta_resident_memory_bytes": 26771456,
+      "peak_resident_memory_bytes": 37302272,
+      "duration_seconds": 1.0,
+      "processing_deadline_misses": 0,
+      "inference_failures": 0
+    }
+  ],
+  "summary": {
+    "delta_mean_bytes": 26794666.666666668,
+    "delta_min_bytes": 26767360,
+    "delta_max_bytes": 26845184,
+    "delta_population_standard_deviation_bytes": 35760.26686452748,
+    "interpretation": "The delta includes the model, inference runtime, and persistent adapter allocations; it excludes stream processing after load and is not a weight-only byte count."
+  },
+  "limitations": [
+    "The host is Linux/WSL, not the native Windows production host.",
+    "RSS delta is an isolated load-envelope measurement, not a model-weight allocation query."
+  ]
+}

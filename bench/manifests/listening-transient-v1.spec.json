@@ -1,0 +1,15 @@
+{
+  "schema_id": "auralis.abx-session-spec.v1",
+  "session_family": "auralis-m3-transient-abx-v1",
+  "pairs_per_case": 2,
+  "case_ids": [
+    "ja-male-sibilant-0012--silence-click-speech",
+    "ja-female-sibilant-0164--speech-repeated-keyboard",
+    "voicebank-p232-003--speech-desk-knock",
+    "voicebank-p257-019--speech-door-slam",
+    "ja-male-sibilant-0012--noise-to-clean-speech",
+    "ja-female-sibilant-0164--steady-noise-speech-onset",
+    "voicebank-p232-003--speech-to-steady-noise",
+    "voicebank-p257-019--speech-in-noise-offset"
+  ]
+}

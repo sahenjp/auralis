@@ -1,0 +1,15 @@
+{
+  "schema_id": "auralis.abx-session-spec.v1",
+  "session_family": "auralis-m3-core-abx-v1",
+  "pairs_per_case": 2,
+  "case_ids": [
+    "ja-male-sibilant-0012--clean",
+    "ja-female-sibilant-0164--clean",
+    "en-female-consonant-0003--clean",
+    "en-male-consonant-0006--clean",
+    "ja-male-sibilant-0012--demand-office--snr-minus-10db",
+    "ja-female-sibilant-0164--demand-cafeteria--snr-minus-5db",
+    "en-female-consonant-0003--demand-street-traffic--snr-plus-0db",
+    "en-male-consonant-0006--combined-cafeteria-metro--snr-plus-5db"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_id": "auralis.corpus-source.voicebank-clean.v1",
+  "corpus_id": "voicebank-fullband-clean-v1",
+  "dataset": {
+    "title": "Noisy speech database for training speech enhancement algorithms and TTS models",
+    "publisher": "University of Edinburgh DataShare",
+    "item_uuid": "6ed35425-bf14-4d2b-93a1-0a4984952757",
+    "doi": "10.7488/ds/2117",
+    "license": "CC-BY-4.0",
+    "record_url": "https://datashare.ed.ac.uk/handle/10283/2791"
+  },
+  "archives": {
+    "audio": {
+      "name": "clean_testset_wav.zip",
+      "bitstream_uuid": "dec213d3-bf57-4777-9663-c24bdce92d5e",
+      "download_url": "https://datashare.ed.ac.uk/server/api/core/bitstreams/dec213d3-bf57-4777-9663-c24bdce92d5e/content",
+      "size_bytes": 154332064,
+      "md5": "34eb1c0ba7ef667e9b966866c542fc16"
+    },
+    "transcript": {
+      "name": "testset_txt.zip",
+      "bitstream_uuid": "09e12592-879e-4749-bf6d-e34cf0d1ddf6",
+      "download_url": "https://datashare.ed.ac.uk/server/api/core/bitstreams/09e12592-879e-4749-bf6d-e34cf0d1ddf6/content",
+      "size_bytes": 440277,
+      "md5": "6ca8ef3756f3769c05bb694e77ad29f0"
+    }
+  },
+  "sample_rate_hz": 48000,
+  "speaker_metadata": {
+    "source": "VCTK 0.92 speaker-info.txt distributed by the corpus publisher",
+    "p232": {"gender": "male"},
+    "p257": {"gender": "female"}
+  },
+  "selections": [
+    {"case_id":"voicebank-p232-003","utterance_id":"p232_003","speaker_id":"p232","tags":["english","male","read-speech","clean","full-band","consonant-heavy"]},
+    {"case_id":"voicebank-p232-021","utterance_id":"p232_021","speaker_id":"p232","tags":["english","male","read-speech","clean","full-band"]},
+    {"case_id":"voicebank-p232-372","utterance_id":"p232_372","speaker_id":"p232","tags":["english","male","read-speech","clean","full-band","consonant-heavy"]},
+    {"case_id":"voicebank-p257-003","utterance_id":"p257_003","speaker_id":"p257","tags":["english","female","read-speech","clean","full-band","consonant-heavy"]},
+    {"case_id":"voicebank-p257-019","utterance_id":"p257_019","speaker_id":"p257","tags":["english","female","read-speech","clean","full-band","consonant-heavy"]},
+    {"case_id":"voicebank-p257-023","utterance_id":"p257_023","speaker_id":"p257","tags":["english","female","read-speech","clean","full-band"]}
+  ]
+}

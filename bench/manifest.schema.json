@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://auralis.local/schemas/benchmark-manifest-v1.json",
+  "title": "Auralis benchmark manifest",
+  "type": "object",
+  "required": ["schema_version", "corpus_id", "sample_rate_hz", "channels", "cases"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "corpus_id": { "type": "string", "minLength": 1 },
+    "sample_rate_hz": { "type": "integer", "minimum": 8000 },
+    "channels": { "type": "integer", "minimum": 1 },
+    "cases": { "type": "array", "minItems": 1 }
+  },
+  "additionalProperties": true
+}
+

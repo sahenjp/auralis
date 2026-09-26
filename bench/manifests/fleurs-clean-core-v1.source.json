@@ -1,0 +1,22 @@
+{
+  "schema_id": "auralis.corpus-source.fleurs.v1",
+  "corpus_id": "fleurs-clean-core-v1",
+  "dataset": {
+    "upstream_project": "google/fleurs",
+    "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+    "license": "CC-BY-4.0",
+    "license_url": "https://huggingface.co/datasets/google/fleurs/blob/70bb2e84b976b7e960aa89f1c648e09c59f894dd/LICENSE",
+    "dataset_card_url": "https://huggingface.co/datasets/google/fleurs/tree/70bb2e84b976b7e960aa89f1c648e09c59f894dd"
+  },
+  "target_sample_rate_hz": 48000,
+  "selections": [
+    {"case_id":"ja-male-general-0000","config":"ja_jp","split":"validation","row_index":0,"expected_gender":0,"tags":["japanese","male","read-speech","clean"]},
+    {"case_id":"ja-male-sibilant-0012","config":"ja_jp","split":"validation","row_index":12,"expected_gender":0,"tags":["japanese","male","read-speech","clean","consonant-heavy"]},
+    {"case_id":"ja-female-general-0117","config":"ja_jp","split":"validation","row_index":117,"expected_gender":1,"tags":["japanese","female","read-speech","clean"]},
+    {"case_id":"ja-female-sibilant-0164","config":"ja_jp","split":"validation","row_index":164,"expected_gender":1,"tags":["japanese","female","read-speech","clean","consonant-heavy"]},
+    {"case_id":"en-male-general-0000","config":"en_us","split":"validation","row_index":0,"expected_gender":0,"tags":["english","male","read-speech","clean"]},
+    {"case_id":"en-female-general-0001","config":"en_us","split":"validation","row_index":1,"expected_gender":1,"tags":["english","female","read-speech","clean"]},
+    {"case_id":"en-female-consonant-0003","config":"en_us","split":"validation","row_index":3,"expected_gender":1,"tags":["english","female","read-speech","clean","consonant-heavy"]},
+    {"case_id":"en-male-consonant-0006","config":"en_us","split":"validation","row_index":6,"expected_gender":0,"tags":["english","male","read-speech","clean","consonant-heavy"]}
+  ]
+}

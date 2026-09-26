@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://auralis.local/schemas/candidate-set-v1.json",
+  "title": "Auralis denoiser candidate set",
+  "type": "object",
+  "required": ["schema_id", "candidate_set_id", "frozen_at", "candidates"],
+  "properties": {
+    "schema_id": { "const": "auralis.denoiser-candidate-set.v1" },
+    "candidate_set_id": { "type": "string", "minLength": 1 },
+    "frozen_at": { "type": "string", "format": "date" },
+    "candidates": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "family",
+          "upstream",
+          "licenses",
+          "artifact",
+          "signal_contract",
+          "runtime",
+          "deployment",
+          "gate_a"
+        ]
+      }
+    }
+  },
+  "additionalProperties": true
+}

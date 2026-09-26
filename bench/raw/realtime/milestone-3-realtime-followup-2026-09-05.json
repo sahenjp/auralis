@@ -1,0 +1,130 @@
+{
+  "schema_id": "auralis.realtime-bakeoff-followup.v1",
+  "measurement_scope": "Additional native Windows 11 CPAL/WASAPI release runs and host provenance collected after the original Milestone 3 roll-up",
+  "parent_summary": {
+    "path": "bench/raw/realtime/milestone-3-realtime-summary-v1.json",
+    "sha256": "c8d043d4d98c83c7720a7e92e04f5812a8d704e263f2bfa8388358e2285b2d1d"
+  },
+  "host_snapshot": {
+    "path": "bench/raw/realtime/native-host-snapshot-2026-09-05.json",
+    "sha256": "5c704e44af7303ff6f57e1f5701b67dac28f96c5b98961096da93d893fc008bd"
+  },
+  "runs": [
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "purpose": "host_envelope",
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-host-envelope-60s.json",
+        "sha256": "8a409a3bab55fd4f159e93d79f6441b0715a51e3a63ea1f7683880641630303a",
+        "model_sha256": "f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b"
+      },
+      "duration_seconds": 60.000813,
+      "pipeline": {
+        "queue_capacity_frames": 4,
+        "target_fill_frames": 3.5,
+        "startup_pre_roll_frames_requested": 1,
+        "startup_pre_roll_frames_effective": 3,
+        "drift_correction_enabled": true
+      },
+      "stability": {
+        "input_overrun_frames": 0,
+        "output_overrun_frames": 0,
+        "output_underrun_callbacks": 0,
+        "stream_xruns": 0,
+        "processing_deadline_misses": 0,
+        "inference_failures": 0
+      },
+      "queue": {
+        "mean_frames": 3.8433680555555556,
+        "minimum_frames": 2.8,
+        "maximum_frames": 3.995833333333333,
+        "slope_equivalent_ppm": -65.64041061240053
+      },
+      "latency": {
+        "transport_average_ms": 42.65786280660771,
+        "transport_maximum_ms": 43.4628,
+        "processing_average_ms": 0.892989296432144,
+        "processing_maximum_ms": 2.6653,
+        "model_algorithmic_latency_samples": 256,
+        "processor_algorithmic_latency_samples_at_48khz": 2208,
+        "drift_resampler_delay_samples": 64,
+        "processing_path_algorithmic_latency_samples": 2272
+      },
+      "inference_wall_time_ms": {
+        "mean": 1.3579175293489862,
+        "p50": 1.34,
+        "p95": 1.69,
+        "p99": 2.12,
+        "maximum": 2.6063
+      },
+      "resources": {
+        "average_cpu_percent": 13.430533926585364,
+        "peak_resident_memory_bytes": 43446272,
+        "model_memory_bytes": null
+      },
+      "interpretation": "Host provenance is supplied by the separate sidecar because this paired executable predates the in-process host wrapper fields."
+    },
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "purpose": "requested_zero_pre_roll_control",
+      "artifact": {
+        "path": "bench/work/native-windows-ulunas-preroll0-60s.json",
+        "sha256": "469db3692de2886fad41c0bc53129920591d30f71f3a82859bbb93bb23c56d53",
+        "model_sha256": "f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b"
+      },
+      "duration_seconds": 60.0005051,
+      "pipeline": {
+        "queue_capacity_frames": 4,
+        "target_fill_frames": 3.5,
+        "startup_pre_roll_frames_requested": 0,
+        "startup_pre_roll_frames_effective": 3,
+        "drift_correction_enabled": true,
+        "effective_pre_roll_reason": "first observed output callback contained 1056 samples; automatic callback-size guard raised the target to ceil(1056/480)=3 frames"
+      },
+      "stability": {
+        "input_overrun_frames": 0,
+        "output_overrun_frames": 0,
+        "output_underrun_callbacks": 0,
+        "stream_xruns": 0,
+        "processing_deadline_misses": 0,
+        "inference_failures": 0
+      },
+      "queue": {
+        "mean_frames": 3.1623611111111107,
+        "minimum_frames": 2.995833333333333,
+        "maximum_frames": 3.3895833333333334,
+        "slope_equivalent_ppm": 73.7302866126868
+      },
+      "latency": {
+        "transport_average_ms": 45.442181728683465,
+        "transport_maximum_ms": 47.4163,
+        "processing_average_ms": 0.9443427046856762,
+        "processing_maximum_ms": 3.4741,
+        "model_algorithmic_latency_samples": 256,
+        "processor_algorithmic_latency_samples_at_48khz": 2208,
+        "drift_resampler_delay_samples": 64,
+        "processing_path_algorithmic_latency_samples": 2272,
+        "startup_pre_roll_ms": 30.0
+      },
+      "inference_wall_time_ms": {
+        "mean": 1.436711552828175,
+        "p50": 1.4,
+        "p95": 1.71,
+        "p99": 2.19,
+        "maximum": 3.4113
+      },
+      "resources": {
+        "average_cpu_percent": 14.828864800282645,
+        "peak_resident_memory_bytes": 43515904,
+        "model_memory_bytes": null
+      },
+      "interpretation": "The requested zero-frame setting is not a lower-latency operating point on this device; the existing callback-size guard produced the same effective three-frame startup target as the stable profile."
+    }
+  ],
+  "limitations": [
+    "These runs are follow-up evidence and do not reattribute the original 30-minute artifacts.",
+    "The paired executable did not emit an in-process host envelope; host provenance is explicitly sidecar-scoped.",
+    "Model memory is not isolated from process RSS.",
+    "Physical acoustic/device end-to-end latency remains unmeasured."
+  ]
+}

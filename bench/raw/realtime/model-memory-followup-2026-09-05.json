@@ -1,0 +1,37 @@
+{
+  "schema_id": "auralis.model-memory-followup.v1",
+  "measurement_scope": "Local Linux paced simulation method validation; not native Windows acceptance evidence",
+  "measurement_started_unix_seconds": 1788605634,
+  "command": "cargo run --release -p auralis-cli -- simulate 2 --denoiser ul-unas --model models/ulunas_stream_simple.onnx",
+  "candidate_id": "ul-unas-dns3-streaming-onnx",
+  "model": {
+    "path": "models/ulunas_stream_simple.onnx",
+    "sha256": "f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b",
+    "size_bytes": 788967
+  },
+  "host": {
+    "target_os": "linux",
+    "target_architecture": "x86_64",
+    "runtime": "ONNX Runtime CPUExecutionProvider",
+    "intra_op_threads": 1,
+    "inter_op_threads": 1
+  },
+  "method": {
+    "name": "same-process RSS delta before and after denoiser load",
+    "baseline_resident_memory_bytes": 10018816,
+    "post_load_resident_memory_bytes": 36999168,
+    "delta_resident_memory_bytes": 26980352,
+    "interpretation": "The delta includes the model, inference runtime, and persistent adapter allocations; it excludes stream processing after load and is not a weight-only byte count."
+  },
+  "runtime_result": {
+    "duration_seconds": 2.0,
+    "peak_resident_memory_bytes": 37666816,
+    "final_resident_memory_bytes": 37666816,
+    "processing_deadline_misses": 0,
+    "inference_failures": 0
+  },
+  "limitations": [
+    "The host is Linux/WSL, not the native Windows production host.",
+    "RSS delta is an isolated load-envelope measurement, not a model-weight allocation query."
+  ]
+}

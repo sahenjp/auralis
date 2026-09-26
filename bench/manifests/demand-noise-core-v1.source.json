@@ -1,0 +1,22 @@
+{
+  "schema_id": "auralis.corpus-source.demand.v1",
+  "corpus_id": "demand-noise-core-v1",
+  "dataset": {
+    "upstream_project": "DEMAND",
+    "zenodo_record_id": 1227121,
+    "doi": "10.5281/zenodo.1227121",
+    "publication_date": "2013-06-09",
+    "license": "CC-BY-4.0",
+    "record_url": "https://zenodo.org/records/1227121"
+  },
+  "target_sample_rate_hz": 48000,
+  "segment_duration_seconds": 30,
+  "selections": [
+    {"case_id":"demand-domestic-living","archive":"DLIVING_16k.zip","size_bytes":80170627,"md5":"46741384d9e434a0bd8b3ec1830b6052","start_seconds":15,"tags":["real-noise","domestic","living"]},
+    {"case_id":"demand-domestic-washing","archive":"DWASHING_16k.zip","size_bytes":102343250,"md5":"7e5ee9437ce9409c5f9a779b6212a240","start_seconds":30,"tags":["real-noise","domestic","washing"]},
+    {"case_id":"demand-office","archive":"OOFFICE_16k.zip","size_bytes":88995191,"md5":"7b61cc2d182d5a654cb9c3101ddd4041","start_seconds":45,"tags":["real-noise","office"]},
+    {"case_id":"demand-cafeteria","archive":"PCAFETER_16k.zip","size_bytes":107431494,"md5":"99927d148128254141a9417d051510bb","start_seconds":60,"tags":["real-noise","public","cafeteria"]},
+    {"case_id":"demand-street-traffic","archive":"STRAFFIC_16k.zip","size_bytes":118572691,"md5":"2efa87262f272bbf9ba578088e81939c","start_seconds":75,"tags":["real-noise","street","traffic"]},
+    {"case_id":"demand-metro","archive":"TMETRO_16k.zip","size_bytes":126589090,"md5":"95daf4df678e13b120e14211e6d89571","start_seconds":90,"tags":["real-noise","transit","metro"]}
+  ]
+}

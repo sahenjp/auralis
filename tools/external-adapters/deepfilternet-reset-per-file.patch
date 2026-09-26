@@ -1,0 +1,14 @@
+diff --git a/libDF/src/bin/enhance_wav.rs b/libDF/src/bin/enhance_wav.rs
+index b9d5ec9..094eef2 100644
+--- a/libDF/src/bin/enhance_wav.rs
++++ b/libDF/src/bin/enhance_wav.rs
+@@ -137,7 +137,9 @@ fn main() -> Result<()> {
+         log::info!("Creating output directory: {}", args.output_dir.display());
+         std::fs::create_dir_all(args.output_dir.clone())?
+     }
++    let pristine_model = model.clone();
+     for file in args.files {
++        model = pristine_model.clone();
+         let reader = ReadWav::new(file.to_str().unwrap())?;
+         // Check if we need to adjust to multiple channels
+         if r_params.n_ch != reader.channels {

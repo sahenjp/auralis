@@ -1,0 +1,79 @@
+{
+  "schema_id": "auralis.gate-c-finalist-selection.v1",
+  "selection_id": "auralis-m3-gate-c-v1",
+  "selected_at": "2026-08-27",
+  "status": "passed_for_realtime_measurement",
+  "scope": "Select a minimal live-integration set. This is not the final Auralis denoiser decision.",
+  "evidence": {
+    "offline_summary": {
+      "path": "bench/work/metrics/offline-core-v3-summary.json",
+      "sha256": "0bd01f12847e487ca033f2f04525c1253935fb4b9a6a78e192b4f77963c2838a"
+    },
+    "transient_reports": {
+      "deepfilternet3-ll-official": "d31968f46737f28a1685744df6090968ed6120fd9073ca2cc86874581d0f468c",
+      "gtcrn-dns3-streaming-onnx": "c5c1f99cf61b10f9d9c885b6eafb19c3a30fe971941d1ca0b52b680785cc8366",
+      "rnnoise-main-official-model": "d1459f0888126d1980a8c94a9fa48814b2d17d7c8ca6dd5563414b9f867aa26a",
+      "ul-unas-dns3-streaming-onnx": "bb8140f5bf2cd40975164ee6510d7c1df4e9bd665c60911669002c1e3ed016a6"
+    },
+    "blind_harness_validation": {
+      "core_sha256": "e5673e0a90461c632ef4f6ed596a1d63031313840e68712c232bf8ca4e0ec14b",
+      "transient_sha256": "780ccc5a64fdf12ea30be37c4c9f93228192924232d1cbf5009f853af694d4c8",
+      "human_response_count": 0
+    }
+  },
+  "selected": [
+    {
+      "candidate_id": "ul-unas-dns3-streaming-onnx",
+      "role": "quality_finalist",
+      "measured_strengths": {
+        "noisy_si_sdr_db_mean": 7.025362510108944,
+        "noisy_stoi_delta_mean": 0.005724534093722165,
+        "model_inference_wall_time_ms_mean_wsl": 0.738419622016758,
+        "model_inference_wall_time_ms_p99_wsl": 1.758379899999998,
+        "complete_path_realtime_factor_mean_wsl": 0.05116622979853249
+      },
+      "measured_risks": {
+        "native_sample_rate_hz": 16000,
+        "clean_stoi_delta_mean": -0.07602561329455414,
+        "clean_8khz_to_20khz_energy_change_db_mean": -13.111984792802124,
+        "production_resampler_latency": "verified: 64 samples / 1.333 ms drift-resampler delay; 2,272 samples / 47.333 ms complete processing-path structural delay"
+      },
+      "decision": "Integrate locally behind the common denoiser boundary; native 30-minute stability passed, but blind listening, host provenance, isolated model memory, and weight-license clarification remain before release acceptance."
+    },
+    {
+      "candidate_id": "rnnoise-main-official-model",
+      "role": "lightweight_reference",
+      "measured_strengths": {
+        "native_sample_rate_hz": 48000,
+        "noisy_si_sdr_db_mean": 6.825699152334658,
+        "complete_application_realtime_factor_wsl_with_process_startup": 0.044985255677925357
+      },
+      "measured_risks": {
+        "model_algorithmic_latency_ms": 20.0,
+        "clean_stoi_delta_mean": -0.12621192219205593,
+        "clean_frame_gain_standard_deviation_db_mean": 87.38155748182238,
+        "speech_start_event_projection_gain_db_mean": -107.57566877182853
+      },
+      "decision": "Retain as the required lightweight control; do not treat it as the production-quality winner."
+    }
+  ],
+  "not_selected_for_first_live_round": [
+    {
+      "candidate_id": "gtcrn-dns3-streaming-onnx",
+      "reason": "It shares UL-UNAS's 16 kHz, 16 ms, stateful ONNX deployment class. Its mean inference is 0.122 ms faster and clean STOI delta is 0.0165 better, but noisy SI-SDR is 1.551 dB lower and noisy STOI delta is 0.0117 lower. Retain as a measured fallback if Windows p99, clean listening, or deployment results reverse the tradeoff."
+    },
+    {
+      "candidate_id": "deepfilternet3-ll-official",
+      "reason": "Its native 48 kHz path and 10 ms algorithmic latency are valuable, but WSL complete RTF is 0.2051, noisy STOI delta is -0.0518, clean STOI delta is -0.1214, and clean RMS change is -2.81 dB. Retain its full-band outputs for listening; do not spend the first live-integration slot on it."
+    }
+  ],
+  "unresolved_before_final_winner": [
+    "No human blind responses have been recorded; only harness integrity has passed.",
+    "All candidate model-weight redistribution/commercial terms remain insufficiently explicit for shipping.",
+    "Native artifacts predate CPU model, SIMD feature, affinity, and OS-build provenance capture; runtime build/provider/thread fields are retained in the raw denoiser-runtime objects.",
+    "Weight-only model memory is not isolated; the new process RSS measurement is retained as a model-load envelope.",
+    "The frozen offline corpus lacks independent recordings for all requested noise categories; current transient controls are synthetic.",
+    "The selected clean-speech sources do not provide controlled close, medium, or far-field recording-distance labels.",
+    "Physical E2E latency remains unknown."
+  ]
+}

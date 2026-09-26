@@ -1,0 +1,80 @@
+{
+  "schema_id": "auralis.transient-corpus-spec.v1",
+  "corpus_id": "auralis-m3-transient-core-v1",
+  "duration_seconds": 8.0,
+  "steady_noise_case_id": "demand-office",
+  "steady_noise_target_db": 0.0,
+  "clean_case_ids": [
+    "ja-male-sibilant-0012",
+    "ja-female-sibilant-0164",
+    "voicebank-p232-003",
+    "voicebank-p257-019"
+  ],
+  "patterns": [
+    {
+      "pattern_id": "silence-click-speech",
+      "speech_start_seconds": 1.5,
+      "event_times_seconds": [1.0],
+      "transient_kind": "keyboard-click",
+      "test_focus": ["attack-artifact", "speech-onset-after-transient", "VAD-state"]
+    },
+    {
+      "pattern_id": "speech-click-speech",
+      "speech_start_seconds": 0.5,
+      "event_times_seconds": [3.0],
+      "transient_kind": "keyboard-click",
+      "test_focus": ["speech-damage-around-click", "suppression-overshoot"]
+    },
+    {
+      "pattern_id": "speech-repeated-keyboard",
+      "speech_start_seconds": 0.5,
+      "event_times_seconds": [1.4, 1.77, 2.14, 2.51, 2.88, 3.25, 3.62, 3.99, 4.36, 4.73],
+      "transient_kind": "keyboard-click",
+      "test_focus": ["repeated-transients", "pumping", "state-instability"]
+    },
+    {
+      "pattern_id": "speech-desk-knock",
+      "speech_start_seconds": 0.5,
+      "event_times_seconds": [3.0],
+      "transient_kind": "desk-knock",
+      "test_focus": ["low-frequency-transient", "temporal-smearing"]
+    },
+    {
+      "pattern_id": "speech-door-slam",
+      "speech_start_seconds": 0.5,
+      "event_times_seconds": [3.0],
+      "transient_kind": "door-slam",
+      "test_focus": ["loud-transient", "release-artifact", "suppression-overshoot"]
+    },
+    {
+      "pattern_id": "noise-to-clean-speech",
+      "speech_start_seconds": 2.0,
+      "steady_noise_interval_seconds": [0.0, 2.0],
+      "steady_noise_target_db": 0.0,
+      "test_focus": ["noise-release", "clean-speech-onset", "temporary-speech-suppression"]
+    },
+    {
+      "pattern_id": "steady-noise-speech-onset",
+      "speech_start_seconds": 2.0,
+      "steady_noise_interval_seconds": [0.0, 8.0],
+      "steady_noise_target_db": 0.0,
+      "test_focus": ["speech-attack-during-noise", "VAD-mistake"]
+    },
+    {
+      "pattern_id": "speech-to-steady-noise",
+      "speech_start_seconds": 0.5,
+      "speech_stop_seconds": 4.5,
+      "steady_noise_interval_seconds": [4.5, 8.0],
+      "steady_noise_target_db": 0.0,
+      "test_focus": ["speech-release", "noise-state-acquisition"]
+    },
+    {
+      "pattern_id": "speech-in-noise-offset",
+      "speech_start_seconds": 0.5,
+      "speech_stop_seconds": 4.5,
+      "steady_noise_interval_seconds": [0.0, 8.0],
+      "steady_noise_target_db": 0.0,
+      "test_focus": ["speech-end-during-noise", "release-delay", "pumping"]
+    }
+  ]
+}
