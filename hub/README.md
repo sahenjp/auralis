@@ -1,10 +1,6 @@
 ---
-  - en
-  - ja
-  - audio
-  - speech-enhancement
-  - denoising
-  - ul-unas
+language: [en, ja]
+tags: [audio, speech-enhancement, denoising, ul-unas]
 ---
 
 # Auralis UL-UNAS evaluation
