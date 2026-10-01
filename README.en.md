@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="docs/assets/auralis-wordmark.svg" alt="Auralis" width="320" />
   <p><a href="README.md">日本語</a> · <strong>English</strong></p>
   <p>
     <a href="https://github.com/sahenjp/auralis/actions/workflows/ci.yml"><img src="https://github.com/sahenjp/auralis/actions/workflows/ci.yml/badge.svg" alt="CI status" /></a>

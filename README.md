@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/assets/auralis-header.svg" alt="Auralis — 音声を測定しながら、ローカルで整える" width="100%" />
+  <img src="docs/assets/auralis-wordmark.svg" alt="Auralis" width="320" />
   <p><strong>日本語</strong> · <a href="README.en.md">English</a></p>
   <p>
     <a href="https://github.com/sahenjp/auralis/actions/workflows/ci.yml"><img src="https://github.com/sahenjp/auralis/actions/workflows/ci.yml/badge.svg" alt="CI status" /></a>
