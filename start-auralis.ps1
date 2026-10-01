@@ -43,9 +43,13 @@ if ($localSha256 -ne $expectedSha256) {
 }
 
 Set-Location $root
-$cargoArgs = @(
-    'run', '--release', '-p', 'auralis-cli', '--',
-    'gui', '--profile', 'balanced', '--model', $modelPath
-)
-& cargo @cargoArgs
+$guiArgs = @('gui', '--profile', 'balanced', '--model', $modelPath)
+$executable = Join-Path $root 'auralis-cli.exe'
+if (Test-Path -LiteralPath $executable -PathType Leaf) {
+    & $executable @guiArgs
+}
+else {
+    $cargoArgs = @('run', '--release', '-p', 'auralis-cli', '--') + $guiArgs
+    & cargo @cargoArgs
+}
 exit $LASTEXITCODE
