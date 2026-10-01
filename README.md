@@ -32,7 +32,9 @@
 
 ## 起動
 
-Windows 11でRustをインストール後、リポジトリ内の **`start-auralis.cmd` をダブルクリック**します。初回は固定モデルをダウンロードし、サイズとSHA-256を検証してからビルド・起動します。
+ビルド済みWindows x64版は[Hugging Faceからダウンロード](https://huggingface.co/j-llm/Auralis/resolve/main/Auralis-Windows-x64.zip)できます。展開後、**`start-auralis.cmd` をダブルクリック**してください。初回は固定モデルを取得・検証します。
+
+ソースから試す場合は、Rustをインストールしてリポジトリ内の `start-auralis.cmd` をダブルクリックします。初回にビルドします。
 
 モデル重みはAuralis製ではありません。上流の [Xiaobin-Rong/ul-unas](https://github.com/Xiaobin-Rong/ul-unas) が公開した固定版を、非独占MITライセンスとともに[Hugging Face](https://huggingface.co/j-llm/Auralis)で配布しています。SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`。
 
