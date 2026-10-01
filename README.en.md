@@ -10,11 +10,6 @@
 
 # Auralis
 
-<div align="center">
-  <img src="docs/assets/auralis-header.svg" alt="Auralis — local speech enhancement" width="100%" />
-  <p><a href="README.md">日本語</a> · <strong>English</strong></p>
-</div>
-
 **A local-first speech-denoising prototype for Windows 11.** Audio stays on the device; inference runs outside the real-time callbacks.
 
 > A measured work in progress. These results do not establish listener preference, commercial superiority, or physical end-to-end latency.

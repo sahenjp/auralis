@@ -10,11 +10,6 @@
 
 # Auralis
 
-<div align="center">
-  <img src="docs/assets/auralis-header.svg" alt="Auralis — ローカル音声強調" width="100%" />
-  <p><strong>日本語</strong> · <a href="README.en.md">English</a></p>
-</div>
-
 **Windows 11向けのローカル音声ノイズ抑制プロトタイプ。** 音声はデバイス上で処理し、推論はリアルタイムコールバックの外で実行します。
 
 > 測定結果に基づく開発中の試作です。聴感上の優位性や物理的な総遅延は未確認です。
