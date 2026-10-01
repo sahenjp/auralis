@@ -1,29 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-  <title id="title">Auralis — voice, kept clear and local</title>
-  <desc id="desc">A dark field with a measured audio waveform and the Auralis wordmark.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Auralis — local voice enhancement, measured</title>
+  <desc id="desc">Auralis wordmark, a local audio path and three measured results from the frozen evaluation.</desc>
   <defs>
-    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M36 0H0V36" fill="none" stroke="#253235" stroke-width="1"/>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#293735" stroke-width="1"/>
     </pattern>
-    <linearGradient id="signal" x1="0" x2="1">
-      <stop offset="0" stop-color="#f29a7c"/>
-      <stop offset=".38" stop-color="#f2c99a"/>
-      <stop offset=".7" stop-color="#a8e8c7"/>
-      <stop offset="1" stop-color="#70d1bf"/>
-    </linearGradient>
   </defs>
-  <rect width="1200" height="360" rx="18" fill="#101819"/>
-  <rect width="1200" height="360" rx="18" fill="url(#grid)" opacity=".55"/>
-  <path d="M0 263H1200" stroke="#314144" stroke-width="1"/>
-  <path d="M625 75V284" stroke="#314144" stroke-width="1" stroke-dasharray="3 8"/>
-  <g fill="none" stroke="url(#signal)" stroke-linecap="round">
-    <path d="M635 181h22l8-13 9 29 11-49 12 74 12-99 13 116 12-87 12 55 12-35 12 15h28" stroke-width="3"/>
-    <path d="M841 187h30l10-8 10 15 10-31 11 43 11-62 11 79 12-55 11 33 11-20 11 7h54" stroke-width="2" opacity=".62"/>
+  <rect width="1200" height="380" rx="20" fill="#101817"/>
+  <rect width="1200" height="380" rx="20" fill="url(#grid)" opacity=".42"/>
+  <path d="M56 268H1144" stroke="#344642" stroke-width="1"/>
+  <g fill="#a4b6aa" font-family="Segoe UI, Arial, sans-serif" font-size="11" letter-spacing="2">
+    <text x="64" y="54">WINDOWS 11</text>
+    <text x="178" y="54" fill="#566962">/</text>
+    <text x="200" y="54">LOCAL AUDIO</text>
+    <text x="352" y="54" fill="#566962">/</text>
+    <text x="374" y="54">MEASURED IN THE OPEN</text>
   </g>
-  <text x="72" y="146" fill="#f4f4eb" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="700" letter-spacing="8">AURALIS</text>
-  <text x="76" y="190" fill="#bbcac4" font-family="Segoe UI, Arial, sans-serif" font-size="17" letter-spacing="2.8">VOICE ENHANCEMENT, MEASURED AND LOCAL</text>
-  <rect x="76" y="224" width="7" height="7" rx="3.5" fill="#9ce2bd"/>
-  <text x="94" y="231" fill="#d3ded8" font-family="Segoe UI, Arial, sans-serif" font-size="13" letter-spacing="1.5">WINDOWS 11 · 48 kHz PIPELINE · CPU FIRST</text>
-  <text x="76" y="318" fill="#849792" font-family="Segoe UI, Arial, sans-serif" font-size="12" letter-spacing="2">LOCAL-FIRST / OPEN EVALUATION</text>
-  <text x="1122" y="318" text-anchor="end" fill="#849792" font-family="Segoe UI, Arial, sans-serif" font-size="12" letter-spacing="2">48 → 16 → 48 kHz</text>
+  <text x="62" y="153" fill="#f3f0e8" font-family="Segoe UI, Arial, sans-serif" font-size="70" font-weight="700" letter-spacing="7">AURALIS</text>
+  <text x="68" y="193" fill="#c3d0c8" font-family="Segoe UI, Arial, sans-serif" font-size="18" letter-spacing="1.6">VOICE IN. NOISE DOWN. AUDIO STAYS HERE.</text>
+  <g transform="translate(714 78)">
+    <rect width="420" height="150" rx="12" fill="#182321" stroke="#3b5049"/>
+    <text x="22" y="26" fill="#80968a" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1.7">48 kHz  /  16 kHz MODEL  /  48 kHz</text>
+    <path d="M24 84h36l10-14 12 31 14-59 16 82 16-98 16 109 15-70 15 39 12-24 13 14h44" fill="none" stroke="#a8e2c1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M271 84h30l9-8 10 16 10-28 11 40 10-57 13 72 12-45 11 26 10-17 10 9h14" fill="none" stroke="#f1a17e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+    <text x="24" y="132" fill="#a8e2c1" font-family="Segoe UI, Arial, sans-serif" font-size="9" letter-spacing="1.3">LOCAL PROCESSING</text>
+    <text x="396" y="132" text-anchor="end" fill="#c78b70" font-family="Segoe UI, Arial, sans-serif" font-size="9" letter-spacing="1.3">DENOISING</text>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="64" y="315" fill="#f3f0e8" font-size="20" font-weight="600">7.025 dB</text>
+    <text x="64" y="339" fill="#82958b" font-size="10" letter-spacing="1.4">MEAN SI-SDR · 630 NOISY CASES</text>
+    <path d="M390 296V348" stroke="#344642"/>
+    <text x="424" y="315" fill="#f3f0e8" font-size="20" font-weight="600">+0.0057</text>
+    <text x="424" y="339" fill="#82958b" font-size="10" letter-spacing="1.4">MEAN STOI CHANGE</text>
+    <path d="M748 296V348" stroke="#344642"/>
+    <text x="782" y="315" fill="#f3f0e8" font-size="20" font-weight="600">30 min · 0 losses</text>
+    <text x="782" y="339" fill="#82958b" font-size="10" letter-spacing="1.4">WINDOWS 11 NATIVE RUN</text>
+  </g>
 </svg>
