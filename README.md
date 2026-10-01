@@ -6,43 +6,53 @@
     <img src="https://img.shields.io/badge/code-Apache--2.0-79bda0" alt="Apache-2.0 source license" />
     <img src="https://img.shields.io/badge/platform-Windows%2011-526b65" alt="Windows 11" />
   </p>
+  <p><a href="https://huggingface.co/j-llm/Auralis/resolve/main/Auralis-Windows-x64.zip"><img src="https://img.shields.io/badge/DOWNLOAD-WINDOWS%20X64-9bd9b4?style=for-the-badge" alt="Download Auralis for Windows x64" /></a></p>
 </div>
 
 # Auralis
 
-**Windows 11向けのローカル音声ノイズ抑制プロトタイプ。** 音声はデバイス上で処理し、推論はリアルタイムコールバックの外で実行します。
+**マイクの背景ノイズを抑えて、声を聞きやすく。音声はPC内で処理します。** AuralisはWindows 11向けのリアルタイム音声ノイズ抑制アプリです。
 
-> 測定結果に基づく開発中の試作です。聴感上の優位性や物理的な総遅延は未確認です。
+<p align="center">
+  <img src="docs/assets/auralis-gui-preview.png" alt="AuralisのGUI。マイクと出力先、Balancedモードを選ぶ画面" width="94%" />
+  <br /><sub>マイク音声を処理し、選択したヘッドホンでモニターできます。</sub>
+</p>
 
-## 測定スナップショット
+## できること
 
-| UL-UNAS評価 | 結果 |
-|---|---:|
-| SI-SDR（雑音あり630ケース平均） | **7.025 dB** |
-| STOI変化（同じケース） | **+0.0057** |
-| Windows 11連続動作 | **30分・欠落/underrun/xrun 0件** |
-| 推論時間 | **p95 1.35 ms** |
+- マイク音声の背景ノイズをリアルタイムに抑制
+- 入力・出力デバイスと処理モードをGUIから選択
+- CPU、推論時間、queue、underrun/xrunを確認
+- 音声はPC内で処理し、外部へアップロードしません
 
-8 kHzを超える音声帯域は保持されず、クリーン音声の8–20 kHz成分は平均−13.112 dB変化しました。ソフトウェア経路遅延89.3 msは実機のマイクからスピーカーまでの総遅延ではありません。
+## 今すぐ試す
 
-## 起動
+1. [Windows x64版をダウンロード](https://huggingface.co/j-llm/Auralis/resolve/main/Auralis-Windows-x64.zip)して展開。
+2. `start-auralis.cmd` をダブルクリック。初回は固定モデルを取得・検証します。
+3. マイクとヘッドホンを選び、**Balanced → Start**。
 
-ビルド済みWindows x64版は[Hugging Faceからダウンロード](https://huggingface.co/j-llm/Auralis/resolve/main/Auralis-Windows-x64.zip)できます。展開後、**`start-auralis.cmd` をダブルクリック**してください。初回は固定モデルを取得・検証します。
+Windows 11 x64とMicrosoft Visual C++ 2015–2022 x64 Runtimeが必要です。初回のモデル取得時だけインターネットを使います。ヘッドホンでの利用を推奨します。
 
-ソースから試す場合は、Rustをインストールしてリポジトリ内の `start-auralis.cmd` をダブルクリックします。初回にビルドします。
+## できないこと
 
-モデル重みはAuralis製ではありません。上流の [Xiaobin-Rong/ul-unas](https://github.com/Xiaobin-Rong/ul-unas) が公開した固定版を、非独占MITライセンスとともに[Hugging Face](https://huggingface.co/j-llm/Auralis)で配布しています。SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`。
+- Discord/Teamsなどの入力に選べる**仮想マイク**（未実装）
+- AEC、話者分離（未実装）
+- 8 kHzを超える音声帯域の保持（モデルの出力帯域制限）
 
-音声デバイスなしでの確認:
+## 測定結果
 
-```bash
-cargo run -p auralis-cli -- simulate 2
-```
+<details>
+<summary>評価とリアルタイム測定</summary>
 
-## 現在の範囲
+- UL-UNAS: 雑音あり630ケースで平均 SI-SDR **7.025 dB**、STOI変化 **+0.0057**
+- Windows 11実機: 30分で音声欠落/underrun/xrun 0件、推論時間 p95 **1.35 ms**
+- ソフトウェア経路遅延の平均は **89.3 ms**。物理的なマイク–スピーカー間遅延ではありません。
+- ブラインド聴取は未実施。計測は好みや自然さを示しません。
 
-- RNNoise: 軽量参照エンジン。UL-UNAS: 暫定品質エンジン。
-- AEC、仮想マイク、話者分離、ブラインド聴取評価は未実装/未実施。
-- [測定レポート](docs/milestone-3-results.md) · [評価方法](docs/benchmark-methodology.md) · [遅延の定義](docs/latency-budget.md) · [Hugging Face](https://huggingface.co/j-llm/Auralis)
+詳細: [測定レポート](docs/milestone-3-results.md) · [評価方法](docs/benchmark-methodology.md) · [遅延の定義](docs/latency-budget.md)
 
-ソースコード: [Apache-2.0](LICENSE)。コーパス音声とテスト音声はリポジトリに含めていません。
+</details>
+
+モデル重みはAuralisが学習したものではなく、[Xiaobin-Rong/UL-UNAS](https://github.com/Xiaobin-Rong/ul-unas)の固定版です。ライセンスとSHA-256は[モデルカード](https://huggingface.co/j-llm/Auralis)を参照してください。
+
+Auralisのソースコード: [Apache-2.0](LICENSE)。

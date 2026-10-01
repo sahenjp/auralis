@@ -1,39 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
-  <title id="title">Auralis — local voice enhancement, measured</title>
-  <desc id="desc">Auralis wordmark, a local audio path and three measured results from the frozen evaluation.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Auralis — clearer microphone audio, kept on your PC</title>
+  <desc id="desc">Auralis reduces microphone background noise locally and lets you monitor the processed sound.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" fill="none" stroke="#293735" stroke-width="1"/>
+      <path d="M32 0H0V32" fill="none" stroke="#283633" stroke-width="1"/>
     </pattern>
   </defs>
-  <rect width="1200" height="380" rx="20" fill="#101817"/>
-  <rect width="1200" height="380" rx="20" fill="url(#grid)" opacity=".42"/>
-  <path d="M56 268H1144" stroke="#344642" stroke-width="1"/>
-  <g fill="#a4b6aa" font-family="Segoe UI, Arial, sans-serif" font-size="11" letter-spacing="2">
+  <rect width="1200" height="360" rx="20" fill="#101817"/>
+  <rect width="1200" height="360" rx="20" fill="url(#grid)" opacity=".42"/>
+  <g fill="#9aada2" font-family="Segoe UI, Arial, sans-serif" font-size="11" letter-spacing="2">
     <text x="64" y="54">WINDOWS 11</text>
-    <text x="178" y="54" fill="#566962">/</text>
-    <text x="200" y="54">LOCAL AUDIO</text>
-    <text x="352" y="54" fill="#566962">/</text>
-    <text x="374" y="54">MEASURED IN THE OPEN</text>
+    <text x="178" y="54" fill="#52645d">/</text>
+    <text x="200" y="54">ON-DEVICE AUDIO</text>
   </g>
-  <text x="62" y="153" fill="#f3f0e8" font-family="Segoe UI, Arial, sans-serif" font-size="70" font-weight="700" letter-spacing="7">AURALIS</text>
-  <text x="68" y="193" fill="#c3d0c8" font-family="Segoe UI, Arial, sans-serif" font-size="18" letter-spacing="1.6">VOICE IN. NOISE DOWN. AUDIO STAYS HERE.</text>
-  <g transform="translate(714 78)">
-    <rect width="420" height="150" rx="12" fill="#182321" stroke="#3b5049"/>
-    <text x="22" y="26" fill="#80968a" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1.7">48 kHz  /  16 kHz MODEL  /  48 kHz</text>
-    <path d="M24 84h36l10-14 12 31 14-59 16 82 16-98 16 109 15-70 15 39 12-24 13 14h44" fill="none" stroke="#a8e2c1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M271 84h30l9-8 10 16 10-28 11 40 10-57 13 72 12-45 11 26 10-17 10 9h14" fill="none" stroke="#f1a17e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-    <text x="24" y="132" fill="#a8e2c1" font-family="Segoe UI, Arial, sans-serif" font-size="9" letter-spacing="1.3">LOCAL PROCESSING</text>
-    <text x="396" y="132" text-anchor="end" fill="#c78b70" font-family="Segoe UI, Arial, sans-serif" font-size="9" letter-spacing="1.3">DENOISING</text>
+  <text x="60" y="145" fill="#f3f0e8" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="7">AURALIS</text>
+  <text x="64" y="194" fill="#f3f0e8" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">Clearer mic audio.</text>
+  <text x="64" y="231" fill="#a8e2c1" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">Kept on your PC.</text>
+  <g transform="translate(692 82)">
+    <rect width="444" height="164" rx="14" fill="#182321" stroke="#3b5049"/>
+    <text x="22" y="28" fill="#9aada2" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1.7">MIC INPUT</text>
+    <text x="422" y="28" text-anchor="end" fill="#9aada2" font-family="Segoe UI, Arial, sans-serif" font-size="10" letter-spacing="1.7">HEADPHONE OUTPUT</text>
+    <path d="M24 92h14l5-26 7 51 7-72 8 95 8-56 8 21 8-35 8 17h18" fill="none" stroke="#e69a79" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M164 50V134" stroke="#40544c" stroke-dasharray="3 6"/>
+    <path d="M190 92h28l8-13 10 28 12-52 13 74 13-81 13 71 12-38 12 22 12-15 12 8h43" fill="none" stroke="#a8e2c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="24" y="145" fill="#c78b70" font-family="Segoe UI, Arial, sans-serif" font-size="9" letter-spacing="1.4">BACKGROUND NOISE</text>
+    <text x="422" y="145" text-anchor="end" fill="#a8e2c1" font-family="Segoe UI, Arial, sans-serif" font-size="9" letter-spacing="1.4">LOCAL NOISE REDUCTION</text>
   </g>
-  <g font-family="Segoe UI, Arial, sans-serif">
-    <text x="64" y="315" fill="#f3f0e8" font-size="20" font-weight="600">7.025 dB</text>
-    <text x="64" y="339" fill="#82958b" font-size="10" letter-spacing="1.4">MEAN SI-SDR · 630 NOISY CASES</text>
-    <path d="M390 296V348" stroke="#344642"/>
-    <text x="424" y="315" fill="#f3f0e8" font-size="20" font-weight="600">+0.0057</text>
-    <text x="424" y="339" fill="#82958b" font-size="10" letter-spacing="1.4">MEAN STOI CHANGE</text>
-    <path d="M748 296V348" stroke="#344642"/>
-    <text x="782" y="315" fill="#f3f0e8" font-size="20" font-weight="600">30 min · 0 losses</text>
-    <text x="782" y="339" fill="#82958b" font-size="10" letter-spacing="1.4">WINDOWS 11 NATIVE RUN</text>
-  </g>
+  <path d="M60 282H1140" stroke="#344642" stroke-width="1"/>
+  <text x="64" y="319" fill="#9aada2" font-family="Segoe UI, Arial, sans-serif" font-size="11" letter-spacing="1.8">LIVE MIC MONITORING</text>
+  <text x="420" y="319" fill="#596b63" font-family="Segoe UI, Arial, sans-serif" font-size="11">·</text>
+  <text x="446" y="319" fill="#9aada2" font-family="Segoe UI, Arial, sans-serif" font-size="11" letter-spacing="1.8">NO AUDIO UPLOAD</text>
+  <text x="1136" y="319" text-anchor="end" fill="#9aada2" font-family="Segoe UI, Arial, sans-serif" font-size="11" letter-spacing="1.8">AURALIS</text>
 </svg>
