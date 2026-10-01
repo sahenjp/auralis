@@ -13,11 +13,11 @@ license: mit
 
 <a href="https://github.com/sahenjp/auralis/blob/main/README.md">日本語</a> · <a href="https://github.com/sahenjp/auralis/blob/main/README.en.md">English</a>
 
-**Local speech denoising for Windows 11.** Auralis evaluates the UL-UNAS streaming ONNX model in a 48/16/48 kHz pipeline.
+**Local speech denoising for Windows 11.** These weights are the original upstream UL-UNAS release; Auralis did not train them. Auralis evaluates them in a 48/16/48 kHz pipeline.
 
 ## Download
 
-- [ulunas_stream_simple.onnx](https://huggingface.co/sahenjp/auralis/resolve/main/ulunas_stream_simple.onnx)
+- [ulunas_stream_simple.onnx](https://huggingface.co/j-llm/Auralis/resolve/d6fe7e57b4f3c3d2744bcd74bf0cbe37b9e1aa55/ulunas_stream_simple.onnx)
 - SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`
 - Source: [Xiaobin-Rong/ul-unas](https://github.com/Xiaobin-Rong/ul-unas/tree/00f7c700da43d38347f30a6ccebd86fcbc798e07)
 - License: non-exclusive MIT; see [`LICENSE`](LICENSE)
@@ -38,9 +38,9 @@ The model outputs up to 8 kHz. These are objective engineering measurements, not
 
 ## 日本語
 
-Windows 11向けローカル音声ノイズ抑制モデルです。固定した上流ONNX重みを、Auralisの48/16/48 kHz経路で評価しています。
+Auralisが学習した重みではありません。上流UL-UNASの固定ONNXを、Auralisの48/16/48 kHz経路で評価しています。
 
-- [モデルをダウンロード](https://huggingface.co/sahenjp/auralis/resolve/main/ulunas_stream_simple.onnx)
+- [モデルをダウンロード](https://huggingface.co/j-llm/Auralis/resolve/d6fe7e57b4f3c3d2744bcd74bf0cbe37b9e1aa55/ulunas_stream_simple.onnx)
 - SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`
 - ライセンス: 上流の非独占MIT。詳細は [`LICENSE`](LICENSE)
 

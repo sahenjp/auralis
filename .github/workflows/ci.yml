@@ -26,6 +26,15 @@ jobs:
       - name: Install pinned Rust toolchain
         run: rustup show
 
+      - name: Validate Windows GUI launcher syntax
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $parseErrors = $null
+          [void][System.Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD 'start-auralis.ps1'), [ref]$tokens, [ref]$parseErrors)
+          if ($parseErrors.Count -gt 0) { throw ($parseErrors | Out-String) }
+
       - name: Check formatting
         run: cargo fmt --all -- --check
 

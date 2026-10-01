@@ -30,24 +30,22 @@
 
 The model path is limited to 8 kHz bandwidth. Clean-speech 8–20 kHz energy changed by −13.112 dB mean. The 89.3 ms software-path figure is not physical microphone-to-speaker latency.
 
-## Try it
+## Start
+
+On Windows 11, install Rust, then **double-click `start-auralis.cmd`**. First launch downloads the pinned model, verifies its size and SHA-256, then builds and starts the GUI.
+
+The weights were not trained by Auralis. They are the pinned upstream release from [Xiaobin-Rong/ul-unas](https://github.com/Xiaobin-Rong/ul-unas), shared under its non-exclusive MIT license on [Hugging Face](https://huggingface.co/j-llm/Auralis). SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`.
+
+For a device-free check:
 
 ```bash
 cargo run -p auralis-cli -- simulate 2
 ```
 
-Windows 11 local GUI (requires a model file):
-
-```powershell
-cargo run --release -p auralis-cli -- gui --profile balanced --model C:\Auralis\ulunas_stream_simple.onnx
-```
-
-**UL-UNAS weights are available on [Hugging Face](https://huggingface.co/sahenjp/auralis)** under the upstream non-exclusive MIT license. SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`. The model card includes the upstream source and license.
-
 ## Scope
 
 - RNNoise: lightweight reference. UL-UNAS: provisional quality engine.
 - AEC, virtual microphone, target-speaker extraction, and blind listening are not implemented/completed.
-- [Measurements](docs/milestone-3-results.md) · [Methodology](docs/benchmark-methodology.md) · [Latency](docs/latency-budget.md) · [Hugging Face card](https://huggingface.co/sahenjp/auralis)
+- [Measurements](docs/milestone-3-results.md) · [Methodology](docs/benchmark-methodology.md) · [Latency](docs/latency-budget.md) · [Hugging Face card](https://huggingface.co/j-llm/Auralis)
 
 Source code: [Apache-2.0](LICENSE). Audio corpora and test recordings are not included.

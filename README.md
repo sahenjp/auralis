@@ -30,24 +30,22 @@
 
 8 kHzを超える音声帯域は保持されず、クリーン音声の8–20 kHz成分は平均−13.112 dB変化しました。ソフトウェア経路遅延89.3 msは実機のマイクからスピーカーまでの総遅延ではありません。
 
-## 試す
+## 起動
+
+Windows 11でRustをインストール後、リポジトリ内の **`start-auralis.cmd` をダブルクリック**します。初回は固定モデルをダウンロードし、サイズとSHA-256を検証してからビルド・起動します。
+
+モデル重みはAuralis製ではありません。上流の [Xiaobin-Rong/ul-unas](https://github.com/Xiaobin-Rong/ul-unas) が公開した固定版を、非独占MITライセンスとともに[Hugging Face](https://huggingface.co/j-llm/Auralis)で配布しています。SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`。
+
+音声デバイスなしでの確認:
 
 ```bash
 cargo run -p auralis-cli -- simulate 2
 ```
 
-Windows 11のローカルGUI（モデルファイルは別途必要）:
-
-```powershell
-cargo run --release -p auralis-cli -- gui --profile balanced --model C:\Auralis\ulunas_stream_simple.onnx
-```
-
-**UL-UNASの重みを[Hugging Face](https://huggingface.co/sahenjp/auralis)で公開しています**（非独占MITライセンス、SHA-256 `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`）。ライセンス全文と上流出典はモデルカードに記載しています。
-
 ## 現在の範囲
 
 - RNNoise: 軽量参照エンジン。UL-UNAS: 暫定品質エンジン。
 - AEC、仮想マイク、話者分離、ブラインド聴取評価は未実装/未実施。
-- [測定レポート](docs/milestone-3-results.md) · [評価方法](docs/benchmark-methodology.md) · [遅延の定義](docs/latency-budget.md) · [Hugging Face](https://huggingface.co/sahenjp/auralis)
+- [測定レポート](docs/milestone-3-results.md) · [評価方法](docs/benchmark-methodology.md) · [遅延の定義](docs/latency-budget.md) · [Hugging Face](https://huggingface.co/j-llm/Auralis)
 
 ソースコード: [Apache-2.0](LICENSE)。コーパス音声とテスト音声はリポジトリに含めていません。
