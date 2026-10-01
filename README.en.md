@@ -32,7 +32,9 @@ The model path is limited to 8 kHz bandwidth. Clean-speech 8–20 kHz energy cha
 
 ## Start
 
-On Windows 11, install Rust, then **double-click `start-auralis.cmd`**. First launch downloads the pinned model, verifies its size and SHA-256, then builds and starts the GUI.
+Download the [prebuilt Windows x64 package](https://huggingface.co/j-llm/Auralis/resolve/main/Auralis-Windows-x64.zip), extract it, and **double-click `start-auralis.cmd`**. First launch downloads and verifies the pinned model.
+
+To run from source, install Rust and double-click `start-auralis.cmd` in the repository. It builds the GUI on first launch.
 
 The weights were not trained by Auralis. They are the pinned upstream release from [Xiaobin-Rong/ul-unas](https://github.com/Xiaobin-Rong/ul-unas), shared under its non-exclusive MIT license on [Hugging Face](https://huggingface.co/j-llm/Auralis). SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`.
 
