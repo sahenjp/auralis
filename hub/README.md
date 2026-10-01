@@ -5,7 +5,6 @@ license: mit
 ---
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/sahenjp/auralis/main/docs/assets/auralis-header.svg" alt="Auralis — clearer mic audio, kept on your PC" width="100%" />
   <p><a href="https://github.com/sahenjp/auralis/blob/main/README.md">日本語</a> · <a href="https://github.com/sahenjp/auralis/blob/main/README.en.md">English</a></p>
   <p><a href="https://huggingface.co/j-llm/Auralis/resolve/main/Auralis-Windows-x64.zip"><img src="https://img.shields.io/badge/DOWNLOAD-WINDOWS%20X64-9bd9b4?style=for-the-badge" alt="Download Auralis for Windows x64" /></a></p>
 </div>
