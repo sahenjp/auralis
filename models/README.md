@@ -1,12 +1,10 @@
 # Models
 
-Milestone 3 provisionally selects the pinned UL-UNAS streaming ONNX artifact
-for local evaluation only. It is intentionally not bundled or cleared for
-redistribution; the downloaded `*.onnx`/`*.bin` files remain ignored by Git.
-The exact URL, revision, size, SHA-256, signal contract, and unresolved weight
-terms are recorded in
-[`bench/candidates/frozen-set-v1.json`](../bench/candidates/frozen-set-v1.json).
+Auralis uses the pinned UL-UNAS streaming ONNX artifact:
 
-Any downloader or deployment packaging must verify an allowlisted URL, exact
-size, and cryptographic hash before atomically activating a model. Do not ship
-an artifact until its weight license independently permits the intended use.
+- Model: `ulunas_stream_simple.onnx`
+- Upstream revision: `Xiaobin-Rong/ul-unas@00f7c700da43d38347f30a6ccebd86fcbc798e07`
+- SHA-256: `f2e804d54d6a88f4f82f44d86c9f1cf646db2509bfca935cfbfc5fcd8cbfac3b`
+- License: upstream non-exclusive MIT; the original license is included with the model on [Hugging Face](https://huggingface.co/sahenjp/auralis).
+
+The binary is hosted on Hugging Face, not Git. Verify its SHA-256 after downloading. No user or benchmark audio is distributed with it.
